@@ -1,0 +1,20 @@
+{
+  "name": "photo-grid-monorepo",
+  "version": "1.0.0",
+  "description": "Monorepo containing Photo Grid and its admin interface",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kwickramasekara/photo-grid.git"
+  },
+  "author": "Keith Wickramasekara",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kwickramasekara/photo-grid/issues"
+  },
+  "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
+  "workspaces": [
+    "apps/admin",
+    "apps/photo-grid"
+  ]
+}
