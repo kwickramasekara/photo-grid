@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Monorepo containing Photo Grid and its admin interface",
-  "scripts": {},
+  "scripts": {
+    "format": "prettier . --write"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kwickramasekara/photo-grid.git"
@@ -16,5 +18,9 @@
   "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
   "workspaces": [
     "apps/*"
-  ]
+  ],
+  "devDependencies": {
+    "lint-staged": "^13.2.2",
+    "prettier": "^2.8.8"
+  }
 }
