@@ -9,4 +9,7 @@ export default defineConfig({
   title: "Photo Grid - Admin",
   basePath: "/admin",
   plugins: [media()],
+  document: {
+    newDocumentOptions: () => [],
+  },
 });
