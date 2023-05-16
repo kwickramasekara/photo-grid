@@ -1,6 +1,7 @@
 {
-  "name": "photo-grid-monorepo",
+  "name": "photo-grid",
   "version": "1.0.0",
+  "private": true,
   "description": "Monorepo containing Photo Grid and its admin interface",
   "scripts": {},
   "repository": {
@@ -14,7 +15,6 @@
   },
   "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
   "workspaces": [
-    "apps/admin",
-    "apps/photo-grid"
+    "apps/*"
   ]
 }

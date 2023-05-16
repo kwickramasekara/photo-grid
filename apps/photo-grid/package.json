@@ -1,9 +1,8 @@
 {
-  "name": "photo-grid",
+  "name": "@photo-grid/photo-grid",
   "version": "1.0.0",
   "description": "Self host-able photography portfolio coupled with Sanity headless CMS for asset management",
   "main": "index.js",
-  "devDependencies": {},
   "scripts": {},
   "repository": {
     "type": "git",

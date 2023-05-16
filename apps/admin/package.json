@@ -1,5 +1,5 @@
 {
-  "name": "photo-grid-admin",
+  "name": "@photo-grid/admin",
   "version": "1.0.0",
   "description": "Sanity Studio instance for managing image assets of Photo Grid",
   "main": "index.js",
