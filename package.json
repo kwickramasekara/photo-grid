@@ -24,5 +24,10 @@
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
     "prettier": "^2.8.8"
+  },
+  "rationale": {
+    "scripts": {
+      "prepare": "Husky install shouldn't run when installing packages with npm ci. Opting to use somewhat of a manual check for this to support different CI environments. See Husky docs for more info."
+    }
   }
 }
