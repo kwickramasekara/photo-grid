@@ -5,7 +5,7 @@
   "description": "Monorepo containing Photo Grid and its admin interface",
   "scripts": {
     "format": "prettier . --write --ignore-unknown",
-    "prepare": "husky install"
+    "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },
   "repository": {
     "type": "git",
@@ -21,8 +21,8 @@
     "apps/*"
   ],
   "devDependencies": {
+    "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8",
-    "husky": "^8.0.0"
+    "prettier": "^2.8.8"
   }
 }
