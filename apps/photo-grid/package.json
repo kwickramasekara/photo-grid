@@ -4,8 +4,8 @@
   "description": "Self host-able photography portfolio coupled with Sanity headless CMS for asset management",
   "main": "index.js",
   "scripts": {
-    "build": "eleventy --input=src --output=dist",
-    "dev": "eleventy --serve --input=src --output=dist"
+    "build": "eleventy",
+    "dev": "eleventy --serve"
   },
   "repository": {
     "type": "git",
@@ -17,7 +17,8 @@
     "url": "https://github.com/kwickramasekara/photo-grid/issues"
   },
   "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
-  "dependencies": {
-    "@11ty/eleventy": "^2.0.1"
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-vite": "^4.0.0"
   }
 }
