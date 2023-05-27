@@ -4,7 +4,7 @@
   "private": true,
   "description": "Monorepo containing Photo Grid and its admin interface",
   "scripts": {
-    "dev": "concurrently \"npm:dev -w apps/photo-grid\" \"npm:dev -w apps/admin\" -n \"ui,admin\"  -c \"bgGreen.bold,bgBlue.bold\"",
+    "dev": "concurrently \"npm:dev -w apps/admin\" \"npm:dev -w apps/ui\" -n \"admin,ui\"  -c \"bgBlue.bold,bgGreen.bold\"",
     "format": "prettier . --write --ignore-unknown",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\""
   },

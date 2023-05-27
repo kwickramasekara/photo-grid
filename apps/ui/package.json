@@ -1,7 +1,7 @@
 {
-  "name": "@photo-grid/photo-grid",
+  "name": "@photo-grid/ui",
   "version": "1.0.0",
-  "description": "Self host-able photography portfolio coupled with Sanity headless CMS for asset management",
+  "description": "Photo Grid UI",
   "main": "index.js",
   "scripts": {
     "build": "eleventy --config=eleventy.config.js",
