@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "eleventy --config=eleventy.config.js",
-    "dev": "eleventy --config=eleventy.config.js --serve",
-    "lint": "eslint ./src/js/**/*.ts"
+    "lint": "eslint ./src/js/**/*.ts",
+    "start": "eleventy --config=eleventy.config.js --serve"
   },
   "repository": {
     "type": "git",

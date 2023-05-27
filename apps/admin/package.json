@@ -4,11 +4,8 @@
   "description": "Sanity Studio instance for managing image assets of Photo Grid",
   "main": "index.js",
   "scripts": {
-    "dev": "sanity dev",
-    "start": "sanity start",
     "build": "sanity build",
-    "deploy": "sanity deploy",
-    "deploy-graphql": "sanity graphql deploy"
+    "start": "sanity dev"
   },
   "repository": {
     "type": "git",
