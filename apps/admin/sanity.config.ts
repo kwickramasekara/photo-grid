@@ -8,7 +8,6 @@ export default defineConfig({
   dataset: process.env.SANITY_STUDIO_DATASET!,
   icon: UserIcon,
   title: admin.title,
-  basePath: admin.basePath,
   plugins: [media()],
   document: {
     newDocumentOptions: () => [],

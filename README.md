@@ -20,7 +20,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 
 | Key                   | Description                                          |
 | --------------------- | ---------------------------------------------------- |
-| `admin.basepath`      | path where the admin interface will be accessed      |
+| `admin.basepath`      | path where the admin interface will be accessed from |
 | `admin.title`         | title of the admin interface                         |
 | `ui.author.instagram` | instagram handle of the author                       |
 | `ui.author.name`      | name of the author                                   |

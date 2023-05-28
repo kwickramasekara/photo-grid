@@ -1,4 +1,5 @@
 import { defineCliConfig } from "sanity/cli";
+import { admin } from "../../photo-grid.json";
 
 export default defineCliConfig({
   api: {
@@ -7,5 +8,8 @@ export default defineCliConfig({
   },
   vite: {
     cacheDir: "../../node_modules/.sanity/vite",
+  },
+  project: {
+    basePath: admin.basePath,
   },
 });
