@@ -1,0 +1,17 @@
+{
+  "admin": {
+    "basePath": "/admin",
+    "title": "Photo Grid - Admin Test"
+  },
+  "ui": {
+    "author": {
+      "instagram": "john_doe",
+      "name": "John Doe",
+      "url": "https://example.com/about-me/"
+    },
+    "description": "Photography Portfolio of John Doe.",
+    "language": "en",
+    "title": "Photo Grid",
+    "url": "https://example.com/"
+  }
+}
