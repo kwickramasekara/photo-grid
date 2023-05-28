@@ -4,6 +4,7 @@
   "private": true,
   "description": "Monorepo containing Photo Grid and its admin interface",
   "scripts": {
+    "build": "npm run build -w=apps/admin -w=apps/ui",
     "format": "prettier . --write --ignore-unknown",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "prestart": "node -e \"if (!require('fs').existsSync('./apps/admin/.env.local')) { throw 'ERROR: env.local not found in apps/admin. Please refer to README.'; }\"",
