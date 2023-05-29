@@ -3,13 +3,13 @@ import { admin } from "../../photo-grid.json";
 
 export default defineCliConfig({
   api: {
-    projectId: process.env.SANITY_STUDIO_PROJECT_ID,
-    dataset: process.env.SANITY_STUDIO_DATASET,
-  },
-  vite: {
-    cacheDir: "../../node_modules/.sanity/vite",
+    projectId: process.env.SANITY_STUDIO_PROJECT_ID || admin.sanity.projectId,
+    dataset: process.env.SANITY_STUDIO_DATASET || admin.sanity.dataset,
   },
   project: {
     basePath: admin.basePath,
+  },
+  vite: {
+    cacheDir: "../../node_modules/.sanity/vite",
   },
 });
