@@ -15,19 +15,19 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 
 [`photo-grid.json`](https://github.com/kwickramasekara/photo-grid/blob/main/photo-grid.json) contains customizable properties for both the UI and Admin interfaces. See below for the description of each property.
 
-| Key                                | Description                                          |
-| ---------------------------------- | ---------------------------------------------------- |
-| `admin.basepath`                   | path where the admin interface will be accessed from |
-| `admin.sanity.dataset` :warning:   | Sanity dataset name (default: production)            |
-| `admin.sanity.projectId` :warning: | Sanity project ID                                    |
-| `admin.title`                      | title of the admin interface                         |
-| `ui.author.instagram`              | instagram handle of the author                       |
-| `ui.author.name`                   | name of the author                                   |
-| `ui.author.url`                    | bio link for author                                  |
-| `ui.description`                   | description for the Photo Grid site to help with SEO |
-| `ui.language`                      | HTML language specification                          |
-| `ui.title`                         | Photo Grid title                                     |
-| `ui.url`                           | URL where your Photo Grid can be accessed publicly   |
+| Key                                | Description                                                                                      |
+| ---------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `admin.basepath`                   | path where the admin interface will be accessed from                                             |
+| `admin.sanity.dataset` :warning:   | Sanity dataset name (default: production)                                                        |
+| `admin.sanity.projectId` :warning: | Sanity project ID. Create yours at [sanity.io](https://www.sanity.io/get-started/create-project) |
+| `admin.title`                      | title of the admin interface                                                                     |
+| `ui.author.instagram`              | instagram handle of the author                                                                   |
+| `ui.author.name`                   | name of the author                                                                               |
+| `ui.author.url`                    | bio link for author                                                                              |
+| `ui.description`                   | description for the Photo Grid site to help with SEO                                             |
+| `ui.language`                      | HTML language specification                                                                      |
+| `ui.title`                         | Photo Grid title                                                                                 |
+| `ui.url`                           | URL where your Photo Grid can be accessed publicly                                               |
 
 > **Warning**
 > It is highly recommended to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env.local` file in the `apps/admin` directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
