@@ -4,7 +4,7 @@ import { media } from "sanity-plugin-media";
 import { admin } from "../../photo-grid.json";
 
 export default defineConfig({
-  basePath: admin.basePath,
+  basePath: process.env.MODE === "development" ? admin.basePath : undefined,
   dataset: process.env.SANITY_STUDIO_DATASET || admin.sanity.dataset,
   document: {
     newDocumentOptions: () => [],
