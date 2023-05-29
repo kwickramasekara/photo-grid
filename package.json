@@ -7,7 +7,6 @@
     "build": "npm run build -w=apps/admin -w=apps/ui",
     "format": "prettier . --write --ignore-unknown",
     "prepare": "node -e \"(process.env.CI === undefined) ? require('husky').install() : console.log('Git hooks did not install')\"",
-    "prestart": "node -e \"if (!require('fs').existsSync('./apps/admin/.env.local')) { throw 'ERROR: env.local not found in apps/admin. Please refer to README.'; }\"",
     "start": "concurrently \"npm:start -w apps/admin\" \"npm:start -w apps/ui\" -n \"admin,ui\"  -c \"bgBlue.bold,bgGreen.bold\""
   },
   "repository": {
