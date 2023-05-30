@@ -7,7 +7,6 @@ module.exports = {
     emptyOutDir: true,
     outDir: process.env.ELEVENTY_RUN_MODE == "serve" ? "../site" : "../dist",
   },
-  cacheDir: "../../../node_modules/.vite",
   envDir: "../", // relative to root
   envPrefix: ["SANITY_STUDIO_", "VITE_"], // only load env vars starting with these prefixes to prevent leaks
   root: process.env.ELEVENTY_RUN_MODE == "serve" ? "site" : "dist",

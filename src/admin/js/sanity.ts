@@ -1,7 +1,7 @@
 import { defineConfig, renderStudio } from "sanity";
 import { UserIcon } from "@sanity/icons";
 import { media } from "sanity-plugin-media";
-import { admin } from "../../../../../photo-grid.json";
+import { admin } from "../../../photo-grid.json";
 
 const config = defineConfig({
   basePath: "/admin",
