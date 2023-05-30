@@ -1,13 +1,13 @@
 {
   "name": "photo-grid",
   "version": "1.0.0",
-  "private": true,
-  "description": "Monorepo containing Photo Grid and its admin interface",
+  "description": "Self host-able photography portfolio coupled with Sanity headless CMS for asset management.",
   "scripts": {
-    "build": "npm run build -w=apps/admin -w=apps/ui",
-    "format": "prettier . --write --ignore-unknown",
+    "build": "eleventy --config=eleventy.config.js",
+    "format": "prettier . --write --ignore-unknown --ignore-path .gitignore",
+    "lint": "eslint ./src/js/**/*.ts",
     "prepare": "node -e \"(process.env.CI === undefined) ? require('husky').install() : console.log('Git hooks did not install')\"",
-    "start": "concurrently \"npm:start -w apps/admin\" \"npm:start -w apps/ui\" -n \"admin,ui\"  -c \"bgBlue.bold,bgGreen.bold\""
+    "start": "eleventy --config=eleventy.config.js --serve"
   },
   "repository": {
     "type": "git",
@@ -19,14 +19,22 @@
     "url": "https://github.com/kwickramasekara/photo-grid/issues"
   },
   "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
-  "workspaces": [
-    "apps/*"
-  ],
+  "dependencies": {
+    "sanity": "^3.11.3",
+    "sanity-plugin-media": "^2.0.5"
+  },
   "devDependencies": {
-    "concurrently": "^8.0.1",
+    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy-plugin-vite": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.7",
+    "@typescript-eslint/parser": "^5.59.7",
+    "autoprefixer": "^10.4.14",
+    "eslint": "^8.41.0",
     "husky": "^8.0.0",
     "lint-staged": "^13.2.2",
-    "prettier": "^2.8.8"
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "tailwindcss": "^3.3.2"
   },
   "rationale": {
     "scripts": {
