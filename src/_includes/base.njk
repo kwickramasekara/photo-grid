@@ -7,9 +7,7 @@
     <meta name="description" content="{{ description or config.description }}" />
     <script type="module" src="/js/main.ts"></script>
   </head>
-  <body>
-    <main>
-      {{ content | safe }}
-    </main>
+  <body class="{{ 'bg-black' if config.themePreference == 'dark' }}">
+    {{ content | safe }}
   </body>
 </html>
