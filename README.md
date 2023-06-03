@@ -26,6 +26,8 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `description`                      | description for the Photo Grid site to help with SEO                                             |
 | `language`                         | HTML language specification                                                                      |
 | `port`                             | Port to run the local dev server                                                                 |
+| `themePreference`                  | Background color preference - `dark` or `light`                                                  |
+| `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
 | `title`                            | Photo Grid title                                                                                 |
 | `url`                              | URL where your Photo Grid can be accessed publicly                                               |
 

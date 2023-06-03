@@ -14,6 +14,8 @@
   "description": "Photography Portfolio of John Doe.",
   "language": "en",
   "port": "3333",
+  "themePreference": "dark",
+  "thumbnailWidth": "640",
   "title": "Photo Grid",
   "url": "https://example.com/"
 }
