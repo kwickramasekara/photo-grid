@@ -9,7 +9,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 
 1. Run `npm install` in the root directory.
 2. Run `npm start`.
-3. Open [localhost:3333](http://localhost:3333) and in your browser. Admin interface is available at [localhost:3333/admin/](http://localhost:3333/admin/).
+3. Open [localhost:3333](http://localhost:3333) and [localhost:3333/admin/](http://localhost:3333/admin/) in your browser.
 
 ## Configuration
 
