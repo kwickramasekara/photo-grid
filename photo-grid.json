@@ -11,12 +11,12 @@
     "name": "John Doe",
     "url": "https://example.com/about-me/"
   },
+  "colorPreference": "auto",
   "description": "Photography Portfolio of John Doe.",
   "displayOrder": "desc",
   "gridGap": "0.25",
   "language": "en",
   "port": "3333",
-  "themePreference": "dark",
   "thumbnailWidth": "640",
   "title": "Photo Grid",
   "url": "https://example.com/"

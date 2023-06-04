@@ -26,12 +26,12 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `author.instagram`                 | instagram handle of the author                                                                   |
 | `author.name`                      | name of the author                                                                               |
 | `author.url`                       | bio link for author                                                                              |
+| `colorPreference`                  | Background color preference - `auto`, `dark` or `light`                                          |
 | `description`                      | description for the Photo Grid site to help with SEO                                             |
 | `displayOrder`                     | ordering for the grid - `asc` or `desc`                                                          |
 | `gridGap`                          | gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
 | `port`                             | Port to run the local dev server                                                                 |
-| `themePreference`                  | Background color preference - `dark` or `light`                                                  |
 | `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
 | `title`                            | Photo Grid title                                                                                 |
 | `url`                              | URL where your Photo Grid can be accessed publicly                                               |
