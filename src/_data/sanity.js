@@ -16,7 +16,7 @@ module.exports = async function () {
 
   /* This returns a promise */
   return EleventyFetch(url, {
-    directory: "./.cache/sanity",
+    directory: "./.cache/data-sanity",
     duration: "1d", // save for 1 day,
     type: "json",
     removeUrlQueryParams: true,

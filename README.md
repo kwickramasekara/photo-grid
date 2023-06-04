@@ -12,7 +12,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 > Please refer to the [`.nvmrc`](https://github.com/kwickramasekara/photo-grid/blob/main/.nvmrc) file for the recommended Node version prior to installation. If you do not have Node installed, please refer to the [official documentation](https://nodejs.org/).
 
 > **Note**
-> When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/sanity` directory.
+> When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/data-sanity` directory.
 
 ## Configuration
 
