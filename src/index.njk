@@ -28,7 +28,7 @@ placeholder image with thumbnail and changes opacity of the blur overlay div. #}
       alt="{{ 'Description not available' }}"
       class="hidden"
       onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
-      src="{{ image.url }}?w={{ config.thumbnailWidth }}"
+      src="{{ image.url }}?auto=format&w={{ config.thumbnailWidth }}"
       style="aspect-ratio: {{ image.aspectRatio }}"
     />
   </a>
