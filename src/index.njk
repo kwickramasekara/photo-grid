@@ -1,3 +1,36 @@
 ---
 layout: base.njk
 ---
+
+{# Rendering technique: this uses flexbox to create a masonry grid layout.
+Inside each container,there are 3 elements - 1 blur overlay div and 2 image
+elements. First image element loads the base64 placeholder image (lqip), and the
+second image element loads the thumbnail image. Once loaded, it replaces the
+placeholder image with thumbnail and changes opacity of the blur overlay div. #}
+
+<div class="flex flex-wrap gap-grid">
+  {% for image in sanity %}
+  <a
+    class="photo-container grow h-[40vh] leading-[40vh] max-w-full max-h-full relative"
+    href="#"
+    style="aspect-ratio: {{ image.aspectRatio }}"
+  >
+    <div
+      class="backdrop-blur-xl absolute min-w-full min-h-full transition-opacity duration-1000"
+    ></div>
+    <img
+      alt="{{ image.altText or image.title or 'Description not available' }}"
+      class="max-w-full max-h-full min-w-full min-h-full object-cover"
+      src="{{ image.lqip }}"
+      style="aspect-ratio: {{ image.aspectRatio }}"
+    />
+    <img
+      alt="{{ 'Description not available' }}"
+      class="hidden"
+      onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
+      src="{{ image.url }}?w={{ config.thumbnailWidth }}"
+      style="aspect-ratio: {{ image.aspectRatio }}"
+    />
+  </a>
+  {% endfor %}
+</div>
