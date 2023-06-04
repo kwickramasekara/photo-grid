@@ -4,12 +4,12 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 
 ## Local Development
 
-> **Note**
-> Please refer to the [`.nvmrc`](https://github.com/kwickramasekara/photo-grid/blob/main/.nvmrc) file for the recommended Node version prior to installation. If you do not have Node installed, please refer to the [official documentation](https://nodejs.org/).
-
 1. Run `npm install` in the root directory.
 2. Run `npm start`.
 3. Open [localhost:3333](http://localhost:3333) and [localhost:3333/admin/](http://localhost:3333/admin/) in your browser.
+
+> **Note**
+> Please refer to the [`.nvmrc`](https://github.com/kwickramasekara/photo-grid/blob/main/.nvmrc) file for the recommended Node version prior to installation. If you do not have Node installed, please refer to the [official documentation](https://nodejs.org/).
 
 > **Note**
 > When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/sanity` directory.
