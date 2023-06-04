@@ -1,9 +1,8 @@
 # Dependency directories
 node_modules
 
-# dotenv environment variable files
+# Environment variable files
 .env
-.env.*
 
 # Operating system
 .DS_Store

@@ -37,7 +37,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `url`                              | URL where your Photo Grid can be accessed publicly                                               |
 
 > **Warning**
-> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env.local` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
+> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
 
 > **Note**
 > Make sure to restart the apps after making config changes.

@@ -1,6 +1,6 @@
 const EleventyFetch = require("@11ty/eleventy-fetch");
 const config = require("./config");
-require("dotenv").config({ path: ".env.local" });
+require("dotenv").config();
 
 // API call to Sanity to retrieve all image data. Results are cached for a day.
 // If you want to purge the cache, delete the .cache/sanity folder and rerun the build.
