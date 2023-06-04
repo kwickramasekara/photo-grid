@@ -11,7 +11,7 @@ placeholder image with thumbnail and changes opacity of the blur overlay div. #}
 <div class="flex flex-wrap gap-grid">
   {% for image in sanity %}
   <a
-    class="photo-container grow h-[40vh] leading-[40vh] max-w-full max-h-full relative"
+    class="photo-container grow h-[40vh] leading-[40vh] max-w-full max-h-full relative hover:opacity-70 focus:opacity-70 active:opacity-50 transition-opacity"
     href="#"
     style="aspect-ratio: {{ image.aspectRatio }}"
   >
