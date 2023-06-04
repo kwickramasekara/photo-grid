@@ -12,6 +12,8 @@
     "url": "https://example.com/about-me/"
   },
   "description": "Photography Portfolio of John Doe.",
+  "displayOrder": "desc",
+  "gridGap": "0.25",
   "language": "en",
   "port": "3333",
   "themePreference": "dark",
