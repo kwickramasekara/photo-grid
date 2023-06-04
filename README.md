@@ -11,6 +11,9 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 2. Run `npm start`.
 3. Open [localhost:3333](http://localhost:3333) and [localhost:3333/admin/](http://localhost:3333/admin/) in your browser.
 
+> **Note**
+> When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/sanity` directory.
+
 ## Configuration
 
 [`photo-grid.json`](https://github.com/kwickramasekara/photo-grid/blob/main/photo-grid.json) contains customizable properties for both the UI and Admin interfaces. See below for the description of each property.

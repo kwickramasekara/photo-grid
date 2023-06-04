@@ -12,3 +12,6 @@ Thumbs.db
 # Build artifacts
 dist
 site
+
+# Cache
+.cache
