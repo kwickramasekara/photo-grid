@@ -10,9 +10,7 @@
     />
     <script type="module" src="/js/main.ts"></script>
   </head>
-  <body
-    class="{% if config.colorPreference == 'auto' %}dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% endif %}"
-  >
+  <body class="{% if config.colorPreference == 'auto' %}dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% endif %}">
     {{ content | safe }}
   </body>
 </html>
