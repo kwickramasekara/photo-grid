@@ -3,10 +3,10 @@ layout: base.njk
 ---
 
 {# Rendering technique: this uses flexbox to create a masonry grid layout.
-Inside each container,there are 3 elements - 1 blur overlay div and 2 image
-elements. First image element loads the base64 placeholder image (lqip), and the
-second image element loads the thumbnail image. Once loaded, it replaces the
-placeholder image with thumbnail and changes opacity of the blur overlay div. #}
+Inside each container,there are 3 elements - 1 blur overlay and 2 image
+elements. First image element loads a small base64 placeholder image (lqip), and
+the second image element loads the thumbnail image. Once loaded, it replaces
+placeholder image with the thumbnail and changes opacity of the blur overlay. #}
 
 <div class="flex flex-wrap gap-grid">
   {% for image in sanity %}
