@@ -4,12 +4,15 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 
 ## Local Development
 
+1. Run `npm install` in the root directory.
+2. Run `npm start`.
+3. Open [localhost:3333](http://localhost:3333) and [localhost:3333/admin/](http://localhost:3333/admin/) in your browser.
+
 > **Note**
 > Please refer to the [`.nvmrc`](https://github.com/kwickramasekara/photo-grid/blob/main/.nvmrc) file for the recommended Node version prior to installation. If you do not have Node installed, please refer to the [official documentation](https://nodejs.org/).
 
-1. Run `npm install` in the root directory.
-2. Run `npm start`.
-3. Open [localhost:3333](http://localhost:3333) and in your browser. Admin interface is available at [localhost:3333/admin/](http://localhost:3333/admin/).
+> **Note**
+> When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/data-sanity` directory.
 
 ## Configuration
 
@@ -23,14 +26,18 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `author.instagram`                 | instagram handle of the author                                                                   |
 | `author.name`                      | name of the author                                                                               |
 | `author.url`                       | bio link for author                                                                              |
+| `colorPreference`                  | Background color preference - `auto`, `dark` or `light`                                          |
 | `description`                      | description for the Photo Grid site to help with SEO                                             |
+| `displayOrder`                     | ordering for the grid - `asc` or `desc`                                                          |
+| `gridGap`                          | gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
 | `port`                             | Port to run the local dev server                                                                 |
+| `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
 | `title`                            | Photo Grid title                                                                                 |
 | `url`                              | URL where your Photo Grid can be accessed publicly                                               |
 
 > **Warning**
-> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env.local` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
+> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
 
 > **Note**
 > Make sure to restart the apps after making config changes.

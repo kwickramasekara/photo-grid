@@ -1,14 +1,16 @@
+# Build artifact directories
+dist
+site
+
+# Cache directories
+.cache
+
 # Dependency directories
 node_modules
 
-# dotenv environment variable files
+# Environment variable files
 .env
-.env.*
 
 # Operating system
 .DS_Store
 Thumbs.db
-
-# Build artifacts
-dist
-site
