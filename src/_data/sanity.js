@@ -13,7 +13,7 @@ module.exports = async function () {
   const dataset =
     process.env.SANITY_STUDIO_DATASET || config.admin?.sanity?.dataset;
   const APIVersion = "v2023-06-02"; // Today's date in YYYY-MM-DD format for the latest version
-  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.displayOrder}) { altText, title, url, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height }`;
+  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.displayOrder}) { altText, title, url, "fileName": originalFilename, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height }`;
   const encodedQuery = encodeURIComponent(query);
 
   const url = `https://${projectId}.api.sanity.io/${APIVersion}/data/query/${dataset}?query=${encodedQuery}`;
