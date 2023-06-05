@@ -12,7 +12,7 @@ placeholder image with the thumbnail and changes opacity of the blur overlay. #}
   {% for image in sanity %}
   <a
     class="photo-container grow h-[40vh] leading-[40vh] max-w-full max-h-full relative hover:opacity-70 active:opacity-50 transition-opacity"
-    href="#"
+    href="photo/{{ image | extractImageName | slugify }}/"
     style="aspect-ratio: {{ image.aspectRatio }}"
   >
     <div

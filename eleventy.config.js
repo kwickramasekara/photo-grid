@@ -17,6 +17,13 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("./src/admin/js");
   eleventyConfig.addPassthroughCopy("./src/admin/styles");
 
+  // Returns the name of a given image (see src/_data/sanity.js)
+  eleventyConfig.addFilter("extractImageName", function (sanityImageObj) {
+    return sanityImageObj.title
+      ? sanityImageObj.title
+      : sanityImageObj.fileName.split(".")[0];
+  });
+
   return {
     dir: {
       input: "src",
