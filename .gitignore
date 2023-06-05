@@ -1,3 +1,10 @@
+# Build artifact directories
+dist
+site
+
+# Cache directories
+.cache
+
 # Dependency directories
 node_modules
 
@@ -7,10 +14,3 @@ node_modules
 # Operating system
 .DS_Store
 Thumbs.db
-
-# Build artifact directories
-dist
-site
-
-# Cache directories
-.cache
