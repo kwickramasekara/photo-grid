@@ -8,9 +8,9 @@ node_modules
 .DS_Store
 Thumbs.db
 
-# Build artifacts
+# Build artifact directories
 dist
 site
 
-# Cache
+# Cache directories
 .cache
