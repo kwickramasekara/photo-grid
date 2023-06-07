@@ -1,0 +1,27 @@
+---
+layout: base.njk
+pagination:
+  data: sanity
+  size: 1
+  alias: image
+permalink: "photo/{{ image | extractImageName | slugify }}/"
+eleventyComputed:
+  title: "{{ image | extractImageName | title }} | {{ config.title }}"
+---
+
+{% set buttonLink = 'https://google.com' %}
+{% set buttonIcon = 'src/_includes/icons/previous.njk' %} 
+{% include "src/_includes/components/button-link.njk" %} 
+
+{% set buttonLink = 'https://kethw.com' %} 
+{% set buttonIcon = 'src/_includes/icons/next.njk' %}
+{% include "src/_includes/components/button-link.njk" %}
+
+{% set buttonIcon = 'src/_includes/icons/aperture.njk' %}
+{% include "src/_includes/components/button.njk" %}
+
+{% set buttonIcon = 'src/_includes/icons/close.njk' %}
+{% include "src/_includes/components/button.njk" %}
+
+{% set buttonIcon = 'src/_includes/icons/link.njk' %}
+{% include "src/_includes/components/button.njk" %}
