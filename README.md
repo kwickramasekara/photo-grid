@@ -32,6 +32,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `gridGap`                          | gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
 | `port`                             | Port to run the local dev server                                                                 |
+| `showExifData`                     | Data such as camera make, model and exposure info - `true` or `false`                            |
 | `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
 | `title`                            | Photo Grid title                                                                                 |
 | `url`                              | URL where your Photo Grid can be accessed publicly                                               |

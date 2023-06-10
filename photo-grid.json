@@ -17,6 +17,7 @@
   "gridGap": "0.25",
   "language": "en",
   "port": "3333",
+  "showExifData": "true",
   "thumbnailWidth": "640",
   "title": "Photo Grid",
   "url": "https://example.com/"
