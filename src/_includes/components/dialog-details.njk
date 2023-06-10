@@ -1,0 +1,103 @@
+{# TODO: Check ESC keybindings #}
+{# TODO: Check for no data #}
+{# TODO: Check for certain missing parts #}
+{# TODO: hide scrollbar #}
+
+{% if config.colorPreference == 'dark' %}
+    {% set dialogBgColor = "bg-black/30" %}
+    {% set dialogBorderColor = "border-white/10" %}
+    {% set headerTextColor = "text-gray-50" %}
+    {% set tagBgColor = "bg-gray-200/30" %}
+    {% set textColor = "text-gray-100" %}
+{% elif config.colorPreference == 'light' %}
+    {% set dialogBgColor = "bg-white/30" %}
+    {% set dialogBorderColor = "border-black/10" %}
+    {% set headerTextColor = "text-gray-950" %}
+    {% set tagBgColor = "bg-gray-400/30" %}
+    {% set textColor = "text-gray-900" %}
+{% else %}
+    {% set dialogBgColor = "bg-white/30 dark:bg-black/30" %}
+    {% set dialogBorderColor = "border-black/10 dark:border-white/10" %}
+    {% set headerTextColor = "text-gray-950 dark:text-gray-50" %}
+    {% set tagBgColor = "bg-gray-400/30 dark:bg-gray-200/30" %}
+    {% set textColor = "text-gray-900 dark:text-gray-100" %}
+{% endif %}
+
+<div class="flex h-screen w-screen items-center justify-center" style="background-image: url('https://images.unsplash.com/photo-1506252374453-ef5237291d83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3992&q=80'); background-size: cover">
+  <dialog open class="max-w-lg max-h-[90vh] rounded-lg p-10 backdrop-blur-3xl border-[1px] {{ dialogBgColor }} {{ dialogBorderColor }}">
+    <h1 class="mb-2 text-2xl font-semibold {{ headerTextColor }}">Toucan in the rain</h1>
+    <p class="max-h-44 overflow-scroll leading-7 {{ textColor }}">Toucans are arboreal and typically lay 2–4 white eggs in their nests. They make their nests in tree hollows and holes excavated by other animals such as woodpeckers—the toucan bill has very limited use as an excavation tool. When the eggs hatch, the young emerge completely naked, without any down. Toucans are resident breeders and do not migrate. Toucans are usually found in pairs or small flocks. They sometimes fence with their bills and wrestle, which scientists hypothesize they do to establish dominance hierarchies. In Africa and Asia, hornbills occupy the toucans' ecological niche, an example of convergent evolution.</p>
+
+    <div class="mb-2 mt-4 {{ textColor }}">
+      <span class="inline-block align-text-bottom">
+          {%- include "src/_includes/icons/camera.njk" -%}
+      </span><span class="ml-2">Canon EOS R</span>
+    </div>
+
+    <div class="my-2 block {{ textColor }}">
+      <span class="inline-block align-text-bottom">
+          {%- include "src/_includes/icons/aperture.njk" -%}
+      </span><span class="ml-2">Canon 16-35mm f2.8L</span>
+    </div>
+
+    <div class="my-2 block {{ textColor }}">
+      <span class="inline-block align-text-bottom">
+          {%- include "src/_includes/icons/settings.njk" -%}
+      </span><span class="ml-2">35mm</span><span class="ml-2 before:mr-2 before:text-gray-300 before:content-['\00B7']">ƒ8</span><span class="ml-2 before:mr-2 before:text-gray-300 before:content-['\00B7']">1/4s</span><span class="ml-2 before:mr-2 before:text-gray-300 before:content-['\00B7']">ISO100</span>
+    </div>
+
+    <div class="mt-8 text-sm {{ textColor }} bg-{{ keith }}">
+      <span class="mr-2 px-3 py-1 rounded-xl {{ tagBgColor }}">landscape</span><span class="mr-2 px-3 py-1 rounded-xl {{ tagBgColor }}">travel</span>
+    </div>
+  </dialog>
+</div>
+
+  <!-- WHITE -->
+{# 
+
+  <div class="flex h-screen w-screen items-center justify-center bg-black" style="background-image: url('https://images.unsplash.com/photo-1506252374453-ef5237291d83?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=3992&q=80'); background-size: cover">
+    <dialog open class="max-h-[90vh] max-w-lg rounded-lg bg-white/30 p-10 backdrop-blur-3xl border-[1px] border-black/10">
+      <h1 class="font mb-2 text-2xl font-semibold text-gray-950">Toucan in the rain</h1>
+      <p class="max-h-44 overflow-scroll leading-7 text-gray-900">Toucans are arboreal and typically lay 2–4 white eggs in their nests.  </p>
+  
+      <div class="mb-2 mt-4 block text-gray-900">
+        <span class="inline-block align-text-bottom"
+          ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="inline-block">
+            <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
+            <circle cx="12" cy="13" r="4"></circle></svg></span
+        ><span class="ml-2">Canon EOS R</span>
+      </div>
+  
+      <div class="my-2 block text-gray-900">
+        <span class="inline-block align-text-bottom"
+          ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-aperture">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="14.31" y1="8" x2="20.05" y2="17.94"></line>
+            <line x1="9.69" y1="8" x2="21.17" y2="8"></line>
+            <line x1="7.38" y1="12" x2="13.12" y2="2.06"></line>
+            <line x1="9.69" y1="16" x2="3.95" y2="6.06"></line>
+            <line x1="14.31" y1="16" x2="2.83" y2="16"></line>
+            <line x1="16.62" y1="12" x2="10.88" y2="21.94"></line></svg></span
+        ><span class="ml-2">Canon 16-35mm f2.8L</span>
+      </div>
+  
+      <div class="my-2 block text-gray-900">
+        <span class="inline-block align-text-bottom"
+          ><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sliders">
+            <line x1="4" y1="21" x2="4" y2="14"></line>
+            <line x1="4" y1="10" x2="4" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12" y2="3"></line>
+            <line x1="20" y1="21" x2="20" y2="16"></line>
+            <line x1="20" y1="12" x2="20" y2="3"></line>
+            <line x1="1" y1="14" x2="7" y2="14"></line>
+            <line x1="9" y1="8" x2="15" y2="8"></line>
+            <line x1="17" y1="16" x2="23" y2="16"></line></svg></span
+        ><span class="ml-2"><span class="mr-4">35mm</span><span class="mr-4">ƒ8</span><span class="mr-4">1/4sec</span><span class="mr-4">ISO100</span></span>
+      </div>
+  
+      <div class="mt-8 text-sm text-gray-900"><span class="mr-2 rounded-xl bg-gray-300/30 px-3 py-1">landscape</span><span class="mr-2 rounded-xl bg-gray-300/30 px-3 py-1">travel</span></div>
+    </dialog>
+  </div>
+  
+   #}

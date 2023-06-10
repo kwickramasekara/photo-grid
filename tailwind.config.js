@@ -4,7 +4,7 @@ import config from "./src/_data/config";
 // Make sure to enable "Check JS" option in VS Code settings
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.njk"],
+  content: ["./site/**/*.html"],
   theme: {
     extend: {
       gap: {
