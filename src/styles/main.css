@@ -16,7 +16,9 @@
 /* avoid stretching the image too much on larger landscape screens */
 @media screen and (min-aspect-ratio: 1.4) {
   .photo-container {
-    max-width: calc((100% / 3) - theme("gap.grid") / 2) !important;
+    max-width: calc(
+      (100% / 3) - calc(theme("gap.grid") - theme("gap.grid") / 3)
+    ) !important;
     min-width: unset !important;
   }
 }
