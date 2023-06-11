@@ -3,11 +3,11 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title | safe or config.title | safe }}</title>
+    <title>{{ title | safe if title else config.title | safe }}</title>
     <meta name="description" content="{{ description or config.description }}" />
     <script type="module" src="/js/main.ts"></script>
   </head>
-  <body class="{% if config.colorPreference == 'auto' %}dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% endif %}">
+  <body class="{% if config.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}">
     {{ content | safe }}
   </body>
 </html>
