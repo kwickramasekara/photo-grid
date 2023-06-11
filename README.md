@@ -22,20 +22,21 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | ---------------------------------- | ------------------------------------------------------------------------------------------------ |
 | `admin.sanity.dataset` :warning:   | Sanity dataset name (default: production)                                                        |
 | `admin.sanity.projectId` :warning: | Sanity project ID. Create yours at [sanity.io](https://www.sanity.io/get-started/create-project) |
-| `admin.title`                      | title of the admin interface                                                                     |
-| `author.instagram`                 | instagram handle of the author                                                                   |
-| `author.name`                      | name of the author                                                                               |
-| `author.url`                       | bio link for author                                                                              |
+| `admin.title`                      | Title of the admin interface                                                                     |
+| `author.instagram`                 | Instagram handle of the author                                                                   |
+| `author.name`                      | Name of the author                                                                               |
+| `author.url`                       | Bio link for the author                                                                          |
+| `basePath`                         | Relative path where Photo Grid is located. Useful for subdirectories.                            |
 | `colorPreference`                  | Background color preference - `auto`, `dark` or `light`                                          |
-| `description`                      | description for the Photo Grid site to help with SEO                                             |
-| `displayOrder`                     | ordering for the grid - `asc` or `desc`                                                          |
-| `gridGap`                          | gap between photos in rems (Tailwind uses rem for spacing)                                       |
+| `description`                      | Description for the Photo Grid site to help with SEO                                             |
+| `displayOrder`                     | Ordering for the grid - `asc` or `desc`                                                          |
+| `gridGap`                          | Gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
 | `port`                             | Port to run the local dev server                                                                 |
+| `showDetails`                      | Show modal with image tags, exif data and etc. - `true` or `false`                               |
 | `showExifData`                     | Data such as camera make, model and exposure info - `true` or `false`                            |
 | `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
 | `title`                            | Photo Grid title                                                                                 |
-| `url`                              | URL where your Photo Grid can be accessed publicly                                               |
 
 > **Warning**
 > It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
