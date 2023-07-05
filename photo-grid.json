@@ -19,7 +19,7 @@
   "language": "en",
   "port": "3333",
   "showDetails": "true",
-  "showExifData": "true",
+  "showDetailsExif": "true",
   "thumbnailWidth": "640",
   "title": "Photo Grid"
 }

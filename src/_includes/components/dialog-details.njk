@@ -44,7 +44,7 @@
   
   {% if imgObj.description -%}<p class="max-h-44 line-clamp-6 leading-7 {{ textColor }}" onclick="(function(el){el.classList.remove('line-clamp-6');el.classList.add('overflow-scroll')})(this)">{{ imgObj.description }}</p>{% endif -%}
 
-  {% if (config.showExifData == 'true') and (imgObj.exif) -%}
+  {% if (config.showDetailsExif == 'true') and (imgObj.exif) -%}
     <div class="my-6">
       {# Sanity currently does not support EXIF data for camera make and model; only the lens make and model. #}
 
