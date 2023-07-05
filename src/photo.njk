@@ -24,22 +24,6 @@ eleventyComputed:
 </div>
 
 {# Buttons #}
-<div class="fixed top-0 right-0">
-  {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
-  {%- if config.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
-    {% set buttonIcon = 'src/_includes/icons/details.njk' %}
-    {% set buttonClasses = 'float-left' %}
-    {% set buttonTitle = 'Photo details' %}
-    {% set buttonClickFunc = '(function(){ document.getElementById("dialog-details").showModal();})(this)' %}
-    {% include "src/_includes/components/button.njk" %}
-  {%- endif -%}
-  
-  {% set buttonIcon = 'src/_includes/icons/close.njk' %}
-  {% set buttonTitle = 'Close' %}
-  {% set buttonLink = config.basePath %} {# TODO: check if it goes to the previous place and check with subdomains #}
-  {% include "src/_includes/components/button-link.njk" %}
-</div>
-
 {%- if pagination.href.previous -%}
   <div class="flex fixed top-0 left-0 items-center min-h-[100vh]">
     {% set buttonIcon = 'src/_includes/icons/previous.njk' %}
@@ -57,3 +41,19 @@ eleventyComputed:
     {% include "src/_includes/components/button-link.njk" %}
   </div>
 {%- endif -%}
+
+<div class="fixed top-0 right-0">
+  {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
+  {%- if config.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
+    {% set buttonIcon = 'src/_includes/icons/details.njk' %}
+    {% set buttonClasses = 'float-left' %}
+    {% set buttonTitle = 'Photo details' %}
+    {% set buttonClickFunc = '(function(){ document.getElementById("dialog-details").showModal();})(this)' %}
+    {% include "src/_includes/components/button.njk" %}
+  {%- endif -%}
+  
+  {% set buttonIcon = 'src/_includes/icons/close.njk' %}
+  {% set buttonTitle = 'Close' %}
+  {% set buttonLink = config.basePath %} {# TODO: check if it goes to the previous place and check with subdomains #}
+  {% include "src/_includes/components/button-link.njk" %}
+</div>
