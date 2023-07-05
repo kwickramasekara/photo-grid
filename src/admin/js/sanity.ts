@@ -21,8 +21,8 @@ const config = defineConfig({
         name: "photoGridSourceImage",
         type: "image",
         options: {
-          metadata: ["blurhash", "lqip", "palette", "exif", "location"],
-        },
+          metadata: ["blurhash", "lqip", "palette", "exif"],
+        }, // exif metadata is not included by default
       }),
     ],
   },

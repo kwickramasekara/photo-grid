@@ -4,29 +4,56 @@ pagination:
   data: sanity
   size: 1
   alias: image
-permalink: "photo/{{ image | extractImageName | slugify }}/"
+permalink: "{{ image | extractImageName | slugify }}/"
 eleventyComputed:
   title: "{{ image | extractImageName | title }} | {{ config.title }}"
 ---
 
-{# {% set buttonLink = 'https://google.com' %}
-{% set buttonIcon = 'src/_includes/icons/previous.njk' %} 
-{% include "src/_includes/components/button-link.njk" %} 
+<div class="flex h-screen w-screen items-center justify-center">
+  <div class="max-w-[100vw] min-h-[100vh] relative" style="aspect-ratio: {{ image.aspectRatio }};">
+    <div class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"></div>
+    <img alt="{{ image.altText or image.title or 'Description not available' }}" class="max-h-[100vh] min-w-full max-w-[100vw] object-cover" src="{{ image.lqip }}" style="aspect-ratio: {{ image.aspectRatio }}" />
+    <img alt="{{ 'Description not available' }}" class="hidden" onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)" src="{{ image.url }}?auto=format&w=2048" />
+  </div>
 
-{% set buttonLink = 'https://kethw.com' %} 
-{% set buttonIcon = 'src/_includes/icons/next.njk' %}
-{% include "src/_includes/components/button-link.njk" %}
+  {# Details dialog (modal) markup #}
+  {%- if config.showDetails == 'true' -%}
+    {% set imgObj = image %}
+    {% include "src/_includes/components/dialog-details.njk" %}
+  {%- endif -%}
+</div>
 
-{% set buttonIcon = 'src/_includes/icons/aperture.njk' %}
-{% include "src/_includes/components/button.njk" %}
+{# Buttons #}
+<div class="fixed top-0 right-0">
+  {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
+  {%- if config.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
+    {% set buttonIcon = 'src/_includes/icons/details.njk' %}
+    {% set buttonClasses = 'float-left' %}
+    {% set buttonTitle = 'Photo details' %}
+    {% set buttonClickFunc = '(function(){ document.getElementById("dialog-details").showModal();})(this)' %}
+    {% include "src/_includes/components/button.njk" %}
+  {%- endif -%}
+  
+  {% set buttonIcon = 'src/_includes/icons/close.njk' %}
+  {% set buttonTitle = 'Close' %}
+  {% set buttonLink = config.basePath %} {# TODO: check if it goes to the previous place and check with subdomains #}
+  {% include "src/_includes/components/button-link.njk" %}
+</div>
 
-{% set buttonIcon = 'src/_includes/icons/close.njk' %}
-{% include "src/_includes/components/button.njk" %}
+{%- if pagination.href.previous -%}
+  <div class="flex fixed top-0 left-0 items-center min-h-[100vh]">
+    {% set buttonIcon = 'src/_includes/icons/previous.njk' %}
+    {% set buttonTitle = 'Previous photo' %}
+    {% set buttonLink = pagination.href.previous %} 
+    {% include "src/_includes/components/button-link.njk" %}
+  </div>
+{%- endif -%}
 
-{% set buttonIcon = 'src/_includes/icons/link.njk' %}
-{% include "src/_includes/components/button.njk" %} #}
-
-{% set imgObj = image %}
-{% include "src/_includes/components/dialog-details.njk" %}
-
-
+{%- if pagination.href.next -%}
+  <div class="flex fixed top-0 right-0 items-center min-h-[100vh]">
+    {% set buttonIcon = 'src/_includes/icons/next.njk' %}
+    {% set buttonTitle = 'Next photo' %}
+    {% set buttonLink = pagination.href.next %} 
+    {% include "src/_includes/components/button-link.njk" %}
+  </div>
+{%- endif -%}
