@@ -1,5 +1,5 @@
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
-const photoGridConfig = require("./src/_data/config.js");
+const photoGridConfig = require("./src/_data/config");
 const viteConfig = require("./vite.config");
 
 module.exports = function (eleventyConfig) {
