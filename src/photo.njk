@@ -4,7 +4,7 @@ pagination:
   data: sanity
   size: 1
   alias: image
-permalink: "{{ image | extractImageName | slugify }}/"
+permalink: "{% if config.photoPath %}{{ config.photoPath }}/{% endif %}{{ image | extractImageName | slugify }}/"
 eleventyComputed:
   title: "{{ image | extractImageName | title }} | {{ config.title }}"
 ---

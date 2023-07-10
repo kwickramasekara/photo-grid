@@ -17,6 +17,7 @@
   "displayOrder": "desc",
   "gridGap": "0.25",
   "language": "en",
+  "photoPath": "photo",
   "port": "3333",
   "showDetails": "true",
   "showDetailsExif": "true",
