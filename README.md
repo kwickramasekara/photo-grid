@@ -12,7 +12,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 > Please refer to the [`.nvmrc`](https://github.com/kwickramasekara/photo-grid/blob/main/.nvmrc) file for the recommended Node version prior to installation. If you do not have Node installed, please refer to the [official documentation](https://nodejs.org/).
 
 > **Note**
-> When developing locally, Sanity API responses are cached for 1 day by default. To purge the cache, remove `.cache/data-sanity` directory.
+> When developing locally, Sanity API responses are cached for [1 day](https://github.com/kwickramasekara/photo-grid/blob/main/src/_data/sanity.js#L23) by default. To purge the cache, remove `.cache/data-sanity` directory or change cache duration.
 
 ## Configuration
 
@@ -33,6 +33,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `gridGap`                          | Gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
 | `photoPath`                        | Path to store/serve individual photos; leave empty to store on root.                             |
+| `photoWidth`                       | Photo preview width in pixels.                                                                   |
 | `port`                             | Port to run the local dev server                                                                 |
 | `showDetails`                      | Show modal with photo tags, exif data and etc. - `true` or `false`                               |
 | `showDetailsExif`                  | Camera and exposure info shown within the modal - `true` or `false`                              |
@@ -40,7 +41,7 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `title`                            | Photo Grid title                                                                                 |
 
 > **Warning**
-> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values even though they get bundled with the Javascript files during the build process. To do so, create a `.env` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your production environment as well.
+> It is highly [recommended](https://www.sanity.io/docs/environment-variables) to use environment variables to store these values to avoid checking them into version control. However do note that they get bundled with client-side Javascript during the build process. To do so, create a `.env` file in the root directory with `SANITY_STUDIO_PROJECT_ID` and `SANITY_STUDIO_DATASET` variables. Remember to set these variables in your CI/CD environment as well.
 
 > **Note**
 > Make sure to restart the apps after making config changes.

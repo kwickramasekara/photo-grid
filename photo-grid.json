@@ -18,6 +18,7 @@
   "gridGap": "0.25",
   "language": "en",
   "photoPath": "photo",
+  "photoWidth": "2048",
   "port": "3333",
   "showDetails": "true",
   "showDetailsExif": "true",
