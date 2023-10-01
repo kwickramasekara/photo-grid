@@ -32,12 +32,12 @@ Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io
 | `displayOrder`                     | Ordering for the grid - `asc` or `desc`                                                          |
 | `gridGap`                          | Gap between photos in rems (Tailwind uses rem for spacing)                                       |
 | `language`                         | HTML language specification                                                                      |
-| `photoPath`                        | Path to store/serve individual photos; leave empty to store on root.                             |
-| `photoWidth`                       | Photo preview width in pixels.                                                                   |
+| `photoPath`                        | Path to store/serve individual photos; leave empty to store on root                              |
+| `photoWidth`                       | Photo preview length in pixels (applies to the longest side)                                     |
 | `port`                             | Port to run the local dev server                                                                 |
 | `showDetails`                      | Show modal with photo tags, exif data and etc. - `true` or `false`                               |
 | `showDetailsExif`                  | Camera and exposure info shown within the modal - `true` or `false`                              |
-| `thumbnailWidth`                   | Grid thumbnail width in pixels                                                                   |
+| `thumbnailWidth`                   | Grid thumbnail length in pixels (applies to the longest side)                                    |
 | `title`                            | Photo Grid title                                                                                 |
 
 > **Warning**
