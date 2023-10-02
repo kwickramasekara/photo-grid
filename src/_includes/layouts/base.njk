@@ -9,5 +9,7 @@
   </head>
   <body class="{% if config.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}">
     {{ content | safe }}
+
+    {% block js %}{% endblock %}
   </body>
 </html>
