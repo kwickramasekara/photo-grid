@@ -8,7 +8,9 @@
 @media screen and (min-aspect-ratio: 0.75) and (max-aspect-ratio: 1.3) {
   .photo-container {
     /* gap.grid is set in tailwind.config.js */
-    max-width: calc((100% / 2) - theme("gap.grid") / 2) !important;
+    max-width: calc(
+      (100% / 2) - calc(theme("gap.grid") - theme("gap.grid") / 2)
+    ) !important;
     min-width: unset !important;
   }
 }
@@ -16,7 +18,9 @@
 /* avoid stretching the image too much on larger landscape screens */
 @media screen and (min-aspect-ratio: 1.4) {
   .photo-container {
-    max-width: calc((100% / 3) - theme("gap.grid") / 2) !important;
+    max-width: calc(
+      (100% / 3) - calc(theme("gap.grid") - theme("gap.grid") / 3)
+    ) !important;
     min-width: unset !important;
   }
 }

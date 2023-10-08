@@ -1,5 +1,5 @@
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
-const photoGridConfig = require("./src/_data/config.js");
+const photoGridConfig = require("./src/_data/config");
 const viteConfig = require("./vite.config");
 
 module.exports = function (eleventyConfig) {
@@ -16,6 +16,13 @@ module.exports = function (eleventyConfig) {
   // Admin
   eleventyConfig.addPassthroughCopy("./src/admin/js");
   eleventyConfig.addPassthroughCopy("./src/admin/styles");
+
+  // Returns the name of a given image (see src/_data/sanity.js)
+  eleventyConfig.addFilter("extractImageName", function (sanityImageObj) {
+    return sanityImageObj.title
+      ? sanityImageObj.title
+      : sanityImageObj.fileName.split(".")[0];
+  });
 
   return {
     dir: {
