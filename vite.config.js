@@ -12,10 +12,9 @@ module.exports = {
   root: process.env.ELEVENTY_RUN_MODE == "serve" ? "site" : "dist",
   plugins: [
     {
-      name: "forward-admin",
+      name: "forward-admin", // https://github.com/kwickramasekara/photo-grid/issues/16
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          // https://github.com/kwickramasekara/photo-grid/issues/16
           if (req?.url?.endsWith("admin")) {
             res.writeHead(301, { Location: "/admin/" });
             res.end();
