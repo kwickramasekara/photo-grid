@@ -1,4 +1,4 @@
-import { defineConfig, defineType, defineField, renderStudio } from "sanity";
+import { defineConfig, defineType, renderStudio } from "sanity";
 import { UserIcon } from "@sanity/icons";
 import { media } from "sanity-plugin-media";
 import { admin } from "../../../photo-grid.json";
