@@ -21,7 +21,7 @@
   "homepage": "https://github.com/kwickramasekara/photo-grid#readme",
   "dependencies": {
     "sanity": "^3.11.3",
-    "sanity-plugin-media": "^2.0.5"
+    "sanity-plugin-media": "^2.2.2"
   },
   "devDependencies": {
     "@11ty/eleventy": "^2.0.1",
