@@ -3,8 +3,10 @@ const config = require("./config");
 require("dotenv").config();
 
 /**
- * API call to Sanity to retrieve all image data. Results are cached - if you want to purge it,
- * delete the .cache/sanity folder and rerun the build.
+ * API call to Sanity to retrieve all image data.
+ * Results are cached - if you want to purge it, delete the following cache folder and rerun the build:
+ * node_modules/.cache/@11ty/eleventy-fetch/data/sanity
+ * You can also change cache location with the CACHE_DIR environment variable.
  * @returns {Promise}
  */
 module.exports = async function () {
@@ -19,7 +21,9 @@ module.exports = async function () {
   const url = `https://${projectId}.api.sanity.io/${APIVersion}/data/query/${dataset}?query=${encodedQuery}`;
 
   return EleventyFetch(url, {
-    directory: "./.cache/data-sanity",
+    directory:
+      process.env.CACHE_DIR ||
+      "./node_modules/.cache/@11ty/eleventy-fetch/data/sanity",
     duration: "1d", // keep for 1 day,
     type: "json",
     removeUrlQueryParams: true,
