@@ -2,9 +2,6 @@
 dist
 site
 
-# Cache directories
-.cache
-
 # Dependency directories
 node_modules
 
