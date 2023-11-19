@@ -5,7 +5,7 @@ require("dotenv").config();
 /**
  * API call to Sanity to retrieve all image data.
  * Results are cached - if you want to purge it, delete the following cache folder and rerun the build:
- * node_modules/.cache/@11ty/eleventy-fetch/data/sanity
+ * node_modules/.cache/photo-grid/data/sanity
  * You can also change cache location with the CACHE_DIR environment variable.
  * @returns {Promise}
  */
