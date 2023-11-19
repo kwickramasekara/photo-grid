@@ -22,7 +22,8 @@ module.exports = async function () {
 
   return EleventyFetch(url, {
     directory:
-      process.env.CACHE_DIR || "./node_modules/.cache/photo-grid/data/sanity",
+      process.env.CACHE_DIR ||
+      "./node_modules/.cache/@11ty/eleventy-fetch/data/sanity",
     duration: "1d", // keep for 1 day,
     type: "json",
     removeUrlQueryParams: true,
