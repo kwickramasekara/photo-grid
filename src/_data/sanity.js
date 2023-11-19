@@ -6,7 +6,8 @@ require("dotenv").config();
  * API call to Sanity to retrieve all image data.
  * Results are cached - if you want to purge it, delete the following cache folder and rerun the build:
  * node_modules/.cache/photo-grid/data/sanity
- * You can also change the cache location with the CACHE_DIR environment variable.
+ * You can also change both the cache location and duration with CACHE_DIR and CACHE_DURATION environment variables respectively.
+ * See 11ty documentation for cache duration options: https://www.11ty.dev/docs/plugins/fetch/#change-the-cache-duration
  * @returns {Promise}
  */
 module.exports = async function () {
@@ -23,7 +24,7 @@ module.exports = async function () {
 
   return EleventyFetch(url, {
     directory: cacheDir + "/data/sanity",
-    duration: "1d", // keep for 1 day,
+    duration: process.env.CACHE_DURATION || "1d", // keep for 1 day,
     type: "json",
     removeUrlQueryParams: true,
   }).then((data) => {
