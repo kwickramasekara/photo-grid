@@ -10,6 +10,7 @@ module.exports = {
   envDir: "../", // relative to root
   envPrefix: ["SANITY_STUDIO_", "VITE_"], // only load env vars starting with these prefixes to prevent leaks
   root: process.env.ELEVENTY_RUN_MODE == "serve" ? "site" : "dist",
+  publicDir: "../public", // relative to root
   plugins: [
     {
       name: "forward-admin", // https://github.com/kwickramasekara/photo-grid/issues/16
