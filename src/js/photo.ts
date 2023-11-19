@@ -8,7 +8,7 @@
       document.getElementById("details").click();
     } else if (event.key === "Escape") {
       const dialog = document.getElementById(
-        "dialog-details"
+        "dialog-details",
       ) as HTMLDialogElement;
 
       if (dialog.open === false) {
