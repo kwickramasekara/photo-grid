@@ -1,6 +1,8 @@
+🚧 Work in progress!
+
 # Photo Grid
 
-Self host-able photography portfolio coupled with [Sanity](https://www.sanity.io) headless CMS for asset management.
+Javascript based self host-able photography portfolio coupled with [Sanity](https://www.sanity.io) headless CMS for asset management.
 
 ## Documentation
 
