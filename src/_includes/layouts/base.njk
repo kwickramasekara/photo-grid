@@ -1,13 +1,35 @@
+<!-- Metadata -->
+{% set metaTitle = title | safe if title else config.title | safe %}
+{% set metaDescription = description | truncate(160) if description else config.description %}
+{% set metaImage = [imageUrl,"?w=1200&fm=jpg"] | join if imageUrl else [config.siteUrl, "/metadata/meta-image.jpg"] | join %}
+{% set metaUrl = config.siteUrl %}
+
 <!DOCTYPE html>
 <html lang="{{ config.language }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ title | safe if title else config.title | safe }}</title>
-    <meta name="description" content="{{ description or config.description }}" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/icons/favicon-16x16.png">
+    <title>{{ metaTitle }}</title>
+    <meta name="description" content="{{ metaDescription }}" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="{{ metaUrl }}" />
+    <meta property="og:title" content="{{ metaTitle }}" />
+    <meta property="og:description" content="{{ metaDescription }}" />
+    <meta property="og:image" content="{{ metaImage }}" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="{{ metaUrl }}" />
+    <meta property="twitter:title" content="{{ metaTitle }}" />
+    <meta property="twitter:description" content="{{ metaDescription }}" />
+    <meta property="twitter:image" content="{{ metaImage }}" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/metadata/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/metadata/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/metadata/favicon-16x16.png">
+    <link rel="icon" type="image/x-icon" href="/metadata/favicon.ico">
     <script type="module" src="/js/main.ts"></script>
   </head>
   <body class="{% if config.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}">

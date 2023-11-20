@@ -7,6 +7,8 @@ pagination:
 permalink: "{% if config.photoPath %}{{ config.photoPath }}/{% endif %}{{ image | extractImageName | slugify }}/"
 eleventyComputed:
   title: "{{ image | extractImageName | title }} | {{ config.title }}"
+  description: "{{ image.description }}"
+  imageUrl: "{{ image.url }}"
 ---
 
 <div class="flex h-screen w-screen items-center justify-center">

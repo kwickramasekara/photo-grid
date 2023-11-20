@@ -9,7 +9,7 @@
   "author": {
     "instagram": "john_doe",
     "name": "John Doe",
-    "url": "https://example.com/about-me/"
+    "url": "https://example.com/about-me"
   },
   "basePath": "/",
   "colorPreference": "auto",
@@ -22,6 +22,7 @@
   "port": "3333",
   "showDetails": "true",
   "showDetailsExif": "true",
+  "siteUrl": "https://photo-grid-demo.netlify.app",
   "thumbnailWidth": "640",
   "title": "Photo Grid"
 }
