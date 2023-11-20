@@ -1,7 +1,7 @@
 <!-- Metadata -->
 {% set metaTitle = title | safe if title else config.title | safe %}
 {% set metaDescription = description or config.description %}
-{% set metaImage = [config.siteUrl, "/metadata/meta-image.jpg"] | join %}
+{% set metaImage = [imageUrl,"?w=1200&fm=jpg"] | join if imageUrl else [config.siteUrl, "/metadata/meta-image.jpg"] | join %}
 {% set metaUrl = config.siteUrl %}
 
 <!DOCTYPE html>
