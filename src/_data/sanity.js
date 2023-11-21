@@ -16,7 +16,7 @@ module.exports = async function () {
   const dataset =
     process.env.SANITY_STUDIO_DATASET || config.admin?.sanity?.dataset;
   const APIVersion = "v2023-06-02"; // Today's date in YYYY-MM-DD format for the latest version
-  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.displayOrder}) { altText, description, title, url, "fileName": originalFilename, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height, "tags": opt.media.tags[]->name.current, "exif": metadata.exif }`;
+  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.displayOrder}) { altText, description, title, url, "createdAt": _createdAt, "fileName": originalFilename, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height, "tags": opt.media.tags[]->name.current, "exif": metadata.exif }`;
   const encodedQuery = encodeURIComponent(query);
   const cacheDir = process.env.CACHE_DIR || "./node_modules/.cache/photo-grid";
 
