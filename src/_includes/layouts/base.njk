@@ -31,7 +31,11 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/metadata/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/metadata/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="/metadata/favicon.ico">
-    
+
+    {% if config.allowIndexing === "false" -%}
+    <meta name="robots" content="noindex">
+    {% endif -%}
+
     <script type="module" src="/js/main.ts"></script>
   </head>
   <body class="{% if config.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}">
