@@ -16,7 +16,9 @@
     <item>
       <title>{{ photo.title or "Untitled" }}</title>
       <link>{{  photo | toRelativeURLFromPhotoObj | toAbsoluteURL }}</link>
-      <description>{{ photo.description }}</description>
+      <description><![CDATA[
+        <img src="{{ photo | toOptimizedURLFromPhotoObj | safe }}" alt="{{ photo.title or "Untitled" }}">
+      ]]></description>
       <pubDate>{{ photo.createdAt | toRFC822Date }}</pubDate>
       <dc:creator>{{ config.author.name }}</dc:creator>
       <guid>{{ photo | toRelativeURLFromPhotoObj | toAbsoluteURL }}</guid>
