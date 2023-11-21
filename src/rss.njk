@@ -12,7 +12,7 @@
     <atom:link href="{{  permalink | toAbsoluteURL }}" rel="self" type="application/rss+xml" />
     <description>{{ config.description }}</description>
     <language>{{ config.language }}</language>
-    {%- for photo in sanity | reverse %}
+    {%- for photo in sanity %}
     <item>
       <title>{{ photo.title or "Untitled" }}</title>
       <link>{{  photo | toRelativeURLFromPhotoObj | toAbsoluteURL }}</link>
