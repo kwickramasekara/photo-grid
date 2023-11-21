@@ -4,9 +4,9 @@ pagination:
   data: sanity
   size: 1
   alias: image
-permalink: "{% if config.photoPath %}{{ config.photoPath }}/{% endif %}{{ image | extractImageName | slugify }}/"
+permalink: "{{ image | toRelativeURLFromPhotoObj }}/"
 eleventyComputed:
-  title: "{{ image | extractImageName | title }} | {{ config.title }}"
+  title: "{{ image | extractImageTitle | title }} | {{ config.title }}"
   description: "{{ image.description }}"
   imageUrl: "{{ image.url }}"
 ---
@@ -60,7 +60,7 @@ eleventyComputed:
   {% set buttonIcon = "src/_includes/icons/close.njk" %}
   {% set buttonId = "close" %} 
   {% set buttonTitle = "Close (Esc)" %}
-  {% set buttonLink = config.basePath %} {# TODO: check if it goes to the previous place and check with subdomains #}
+  {% set buttonLink = ['/', config.basePathName] | join %} {# TODO: check if it goes to the previous place and check with subdomains #}
   {% include "src/_includes/components/button-link.njk" %}
 </div>
 
