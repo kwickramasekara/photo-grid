@@ -11,6 +11,7 @@
     "name": "John Doe",
     "url": "https://example.com/about-me"
   },
+  "allowIndexing": "true",
   "basePathName": "",
   "colorPreference": "auto",
   "description": "Photography Portfolio of John Doe.",
