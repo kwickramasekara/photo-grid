@@ -12,17 +12,17 @@
     <atom:link href="{{  permalink | toAbsoluteURL }}" rel="self" type="application/rss+xml" />
     <description>{{ config.description }}</description>
     <language>{{ config.language }}</language>
-    {%- for photo in sanity %}
+    {%- for image in sanity %}
     <item>
-      <title>{{ photo.title or "Untitled" }}</title>
-      <link>{{  photo | toRelativeURLFromPhotoObj | toAbsoluteURL }}</link>
+      <title>{{ image.title or "Untitled" }}</title>
+      <link>{{  image | toRelativeURLFromObj | toAbsoluteURL }}</link>
       <description><![CDATA[
-        <img src="{{ photo | toOptimizedURLFromPhotoObj | safe }}" alt="{{ photo.title or "Untitled" }}">
-        <p>{{ photo.description }}</p>
+        <img src="{{ image | toOptimizedURLFromObj | safe }}" alt="{{ image.title or "Untitled" }}">
+        <p>{{ image.description }}</p>
       ]]></description>
-      <pubDate>{{ photo.createdAt | toRFC822Date }}</pubDate>
+      <pubDate>{{ image.createdAt | toRFC822Date }}</pubDate>
       <dc:creator>{{ config.author.name }}</dc:creator>
-      <guid>{{ photo | toRelativeURLFromPhotoObj | toAbsoluteURL }}</guid>
+      <guid>{{ image | toRelativeURLFromObj | toAbsoluteURL }}</guid>
     </item>
     {%- endfor %}
   </channel>
