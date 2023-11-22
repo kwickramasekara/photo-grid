@@ -13,7 +13,7 @@ module.exports = function (eleventyConfig) {
 
   // Returns the name of a given image (see src/_data/sanity.js)
   eleventyConfig.addNunjucksFilter(
-    "extractPhotoTitleFromPhotoObj",
+    "extractImageTitleFromObj",
     function (sanityImageObj) {
       const { title, fileName } = sanityImageObj;
       return title ? title : fileName.split(".")[0];
@@ -37,29 +37,29 @@ module.exports = function (eleventyConfig) {
       : homePageURL;
   });
 
-  // Returns the relative URL of a given photo object (see src/_data/sanity.js)
+  // Returns the relative URL of a given Sanity data object (see src/_data/sanity.js)
   eleventyConfig.addNunjucksFilter(
-    "toRelativeURLFromPhotoObj",
+    "toRelativeURLFromObj",
     function (sanityImageObj) {
       const extractedTitle = eleventyConfig.getFilter(
-        "extractPhotoTitleFromPhotoObj",
+        "extractImageTitleFromObj",
       )(sanityImageObj);
       const slug = eleventyConfig.getFilter("slugify")(extractedTitle);
 
-      return config.photoPathName
-        ? `${config.photoPathName}/${slug}`
+      return config.previewPathName
+        ? `${config.previewPathName}/${slug}`
         : `${slug}`;
     },
   );
 
-  // Returns the optimized URL of a given photo object (see src/_data/sanity.js)
+  // Returns the optimized URL of a given Sanity data object (see src/_data/sanity.js)
   // Optimizations include: browser based file format, max width or height based on aspect ratio
   // Optional thumbnail parameter returns a smaller sized image
   eleventyConfig.addNunjucksFilter(
-    "toOptimizedURLFromPhotoObj",
+    "toOptimizedURLFromObj",
     function (sanityImageObj, thumbnail = false) {
       const { url, aspectRatio } = sanityImageObj;
-      const size = thumbnail ? config.thumbnailWidth : config.photoWidth;
+      const size = thumbnail ? config.thumbnailWidth : config.previewImageWidth;
 
       return `${url}?auto=format&${aspectRatio > 1 ? "w=" : "h="}${size}`;
     },
