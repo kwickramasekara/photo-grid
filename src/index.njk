@@ -9,11 +9,27 @@ the second image element loads the thumbnail image. Once loaded, it replaces
 placeholder image with the thumbnail and changes opacity of the blur overlay. -#}
 
 <div class="gap-grid flex flex-wrap">
-  {% for image in sanity -%}
-    <a class="image-container relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50" href="{{ image | toRelativeURLFromObj }}/" style="aspect-ratio: {{ image.aspectRatio }}">
-      <div class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"></div>
-      <img alt="{{ image.altText or image.title or 'Description not available' }}" class="max-h-full min-h-full min-w-full max-w-full object-cover" src="{{ image.lqip }}" style="aspect-ratio: {{ image.aspectRatio }}" />
-      <img alt="{{ 'Description not available' }}" class="hidden" onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)" src="{{ image | toOptimizedURLFromObj(true) | safe }}" />
+  {%- for image in sanity -%}
+    <a
+      class="image-container relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50"
+      href="{{ image | toRelativeURLFromObj }}/"
+      style="aspect-ratio: {{ image.aspectRatio }}"
+    >
+      <div
+        class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"
+      ></div>
+      <img
+        alt="{{ image.altText or image.title or 'Description not available' }}"
+        class="max-h-full min-h-full min-w-full max-w-full object-cover"
+        src="{{ image.lqip }}"
+        style="aspect-ratio: {{ image.aspectRatio }}"
+      />
+      <img
+        alt="{{ 'Description not available' }}"
+        class="hidden"
+        onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
+        src="{{ image | toOptimizedURLFromObj(true) | safe }}"
+      />
     </a>
-  {% endfor -%}
+  {%- endfor -%}
 </div>

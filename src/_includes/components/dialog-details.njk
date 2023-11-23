@@ -35,61 +35,95 @@
   {%- endif -%}
 {%- endif -%}
 
-<dialog class="z-50 max-w-lg max-h-[90vh] overflow-x-hidden overflow-y-scroll rounded-lg p-10 backdrop-blur-3xl border-[1px] focus-visible:outline-0 {{ dialogBgColor }} {{ dialogBorderColor }}" id="dialog-details">
-  <button class="absolute appearance-none right-0 top-0 p-4 focus-visible:outline-0 hover:text-opacity-50 {{ textColor }}" onclick="(function(){ document.getElementById('dialog-details').close();})(this)" title="Close">
-    {%- include "src/_includes/icons/close.njk" %}
+<dialog
+  class="z-50 max-w-lg max-h-[90vh] overflow-x-hidden overflow-y-scroll rounded-lg p-10 backdrop-blur-3xl border-[1px] focus-visible:outline-0 {{ dialogBgColor }} {{ dialogBorderColor }}"
+  id="dialog-details"
+>
+  <button
+    class="absolute appearance-none right-0 top-0 p-4 focus-visible:outline-0 hover:text-opacity-50 {{ textColor }}"
+    onclick="(function(){ document.getElementById('dialog-details').close();})(this)"
+    title="Close"
+  >
+    {%- include "src/_includes/icons/close.njk" -%}
   </button>
 
-  {% if imgObj.title -%}<h1 class="mb-2 text-2xl font-semibold {{ headerTextColor }}">{{ imgObj.title }}</h1>{% endif -%}
-  
-  {% if imgObj.description -%}<p class="max-h-44 line-clamp-6 leading-7 {{ textColor }}" onclick="(function(el){el.classList.remove('line-clamp-6');el.classList.add('overflow-scroll')})(this)">{{ imgObj.description }}</p>{% endif -%}
+  {%- if imgObj.title -%}
+    <h1 class="mb-2 text-2xl font-semibold {{ headerTextColor }}">
+      {{ imgObj.title }}
+    </h1>
+  {%- endif -%}
 
-  {% if (config.showDetailsExif == 'true') and (imgObj.exif) -%}
+  {%- if imgObj.description -%}
+    <p
+      class="max-h-44 line-clamp-6 leading-7 {{ textColor }}"
+      onclick="(function(el){el.classList.remove('line-clamp-6');el.classList.add('overflow-scroll')})(this)"
+    >
+      {{ imgObj.description }}
+    </p>
+  {%- endif -%}
+
+  {%- if (config.showDetailsExif == 'true') and (imgObj.exif) -%}
     <div class="my-6">
       {# Sanity currently does not support EXIF data for camera make and model; only the lens make and model. #}
 
-      {% if imgObj.exif.LensModel -%}
+      {%- if imgObj.exif.LensModel -%}
         <div class="mb-2 {{ textColor }}">
           <span class="inline-block align-baseline">
             {%- include "src/_includes/icons/aperture.njk" -%}
           </span>
-          <span class="ml-2 inline-block align-text-bottom max-w-xs truncate">{{ imgObj.exif.LensMake }} {{ imgObj.exif.LensModel }}</span>
+          <span class="ml-2 inline-block align-text-bottom max-w-xs truncate"
+            >{{ imgObj.exif.LensMake }} {{ imgObj.exif.LensModel }}</span
+          >
         </div>
-      {% endif -%}
+      {%- endif -%}
 
-      {% if imgObj.exif.FNumber or calculatedShutterSpeed -%}
+      {%- if imgObj.exif.FNumber or calculatedShutterSpeed -%}
         <div class="mb-2 {{ textColor }}">
           <span class="inline-block align-baseline">
             {%- include "src/_includes/icons/settings.njk" -%}
           </span>
 
           <span class="inline-block align-text-bottom">
-            {% if imgObj.exif.FocalLengthIn35mmFormat or imgObj.exif.FocalLength -%}
-              <span class="ml-2">{{ imgObj.exif.FocalLengthIn35mmFormat or imgObj.exif.FocalLength }}mm</span>
+            {%- if imgObj.exif.FocalLengthIn35mmFormat or imgObj.exif.FocalLength -%}
+              <span class="ml-2"
+                >{{ imgObj.exif.FocalLengthIn35mmFormat or imgObj.exif.FocalLength }}mm</span
+              >
             {%- endif -%}
 
             {%- if imgObj.exif.FNumber -%}
-              <span class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}">ƒ{{ imgObj.exif.FNumber }}</span>
+              <span
+                class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}"
+                >ƒ{{ imgObj.exif.FNumber }}</span
+              >
             {%- endif -%}
-            
+
             {%- if calculatedShutterSpeed -%}
-            <span class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}">{{ calculatedShutterSpeed }}s</span>
+              <span
+                class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}"
+                >{{ calculatedShutterSpeed }}s</span
+              >
             {%- endif -%}
 
             {%- if imgObj.exif.ISOSpeed or imgObj.exif.ISO -%}
-              <span class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}">ISO{{ imgObj.exif.ISOSpeed  or imgObj.exif.ISO }}</span>
-            {%- endif %}
+              <span
+                class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}"
+                >ISO{{ imgObj.exif.ISOSpeed  or imgObj.exif.ISO }}</span
+              >
+            {%- endif -%}
           </span>
         </div>
       {% endif %}
     </div>
-  {% endif -%}
+  {%- endif -%}
 
-  {% if imgObj.tags -%}
+  {%- if imgObj.tags -%}
     <div class="w-full text-sm {{ textColor }} mt-6">
-      {% for tag in imgObj.tags -%}
-        <span class="mr-2 mb-2 px-3 py-1 inline-block rounded-xl {{ tagBgColor }}">{{ tag }}</span>
+      {%- for tag in imgObj.tags -%}
+        <span
+          class="mr-2 mb-2 px-3 py-1 inline-block rounded-xl {{ tagBgColor }}"
+          >{{ tag }}</span
+        >
       {%- endfor -%}
     </div>
-  {% endif -%}
+  {%- endif -%}
 </dialog>
