@@ -1,12 +1,11 @@
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
-const photoGridConfig = require("./src/_data/config");
+const photoGridConfig = require("./photo-grid.json");
 const viteConfig = require("./vite.config");
-const config = require("./photo-grid.json");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     serverOptions: {
-      port: photoGridConfig.port,
+      port: photoGridConfig.app.port,
     },
     viteOptions: viteConfig,
   });
@@ -27,8 +26,8 @@ module.exports = function (eleventyConfig) {
 
   // Returns the absolute URL of a given path
   eleventyConfig.addNunjucksFilter("toAbsoluteURL", function (urlPart) {
-    const { siteUrl, basePathName } = config;
-    const homePageURL = basePathName ? `${siteUrl}/${basePathName}` : siteUrl;
+    const { domain, basePathName } = photoGridConfig.app;
+    const homePageURL = basePathName ? `${domain}/${basePathName}` : domain;
 
     return urlPart
       ? urlPart.charAt(0) === "/"
@@ -46,8 +45,8 @@ module.exports = function (eleventyConfig) {
       )(sanityImageObj);
       const slug = eleventyConfig.getFilter("slugify")(extractedTitle);
 
-      return config.previewPathName
-        ? `${config.previewPathName}/${slug}`
+      return photoGridConfig.app.previewPathName
+        ? `${photoGridConfig.app.previewPathName}/${slug}`
         : `${slug}`;
     },
   );
@@ -59,7 +58,9 @@ module.exports = function (eleventyConfig) {
     "toOptimizedURLFromObj",
     function (sanityImageObj, thumbnail = false) {
       const { url, aspectRatio } = sanityImageObj;
-      const size = thumbnail ? config.thumbnailWidth : config.previewImageWidth;
+      const size = thumbnail
+        ? photoGridConfig.ui.thumbnailWidth
+        : photoGridConfig.ui.previewImageWidth;
 
       return `${url}?auto=format&${aspectRatio > 1 ? "w=" : "h="}${size}`;
     },

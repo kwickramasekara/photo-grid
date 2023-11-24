@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       gap: {
-        grid: config.gridGap ? config.gridGap + "rem" : "0.25rem",
+        grid: config.ui.gridGap ? config.ui.gridGap + "rem" : "0.25rem",
       },
     },
   },

@@ -1,13 +1,13 @@
 {# Color scheme #}
 {# Tailwind needs to see full class names; can't use variables within classes as a result #}
-{%- if config.colorPreference == 'dark' -%}
+{%- if config.ui.colorPreference == 'dark' -%}
   {% set dialogBgColor = "bg-black/30" %}
   {% set dialogBorderColor = "border-white/10" %}
   {% set dividerColor = "before:text-gray-300" %}
   {% set headerTextColor = "text-gray-50" %}
   {% set tagBgColor = "bg-gray-200/30" %}
   {% set textColor = "text-gray-100" %}
-{%- elif config.colorPreference == 'light' -%}
+{%- elif config.ui.colorPreference == 'light' -%}
   {% set dialogBgColor = "bg-white/40" %}
   {% set dialogBorderColor = "border-black/10" %}
   {% set dividerColor = "before:text-gray-600" %}
@@ -62,7 +62,7 @@
     </p>
   {%- endif -%}
 
-  {%- if (config.showDetailsExif == 'true') and (imgObj.exif) -%}
+  {%- if (config.ui.showDetailsExif == 'true') and (imgObj.exif) -%}
     <div class="my-6">
       {# Sanity currently does not support EXIF data for camera make and model; only the lens make and model. #}
 

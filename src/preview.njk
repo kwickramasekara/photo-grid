@@ -6,7 +6,7 @@ pagination:
   alias: image
 permalink: "{{ image | toRelativeURLFromObj }}/"
 eleventyComputed:
-  title: "{{ image | extractImageTitleFromObj | title }} | {{ config.title }}"
+  title: "{{ image | extractImageTitleFromObj | title }} | {{ config.metadata.title }}"
   description: "{{ image.description }}"
   imageUrl: "{{ image.url }}"
 ---
@@ -34,7 +34,7 @@ eleventyComputed:
   </div>
 
   {# Details dialog (modal) markup #}
-  {%- if config.showDetails == "true" -%}
+  {%- if config.ui.showDetails == "true" -%}
     {% set imgObj = image %}
     {% include "src/_includes/components/dialog-details.njk" %}
   {%- endif -%}
@@ -63,7 +63,7 @@ eleventyComputed:
 
 <div class="fixed top-0 right-0">
   {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
-  {%- if config.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
+  {%- if config.ui.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
     {% set buttonIcon = "src/_includes/icons/details.njk" %}
     {% set buttonClasses = "float-left" %}
     {% set buttonId = "details" %}
@@ -74,7 +74,7 @@ eleventyComputed:
   {% set buttonIcon = "src/_includes/icons/close.njk" %}
   {% set buttonId = "close" %}
   {% set buttonTitle = "Close (Esc)" %}
-  {% set buttonLink = ['/', config.basePathName] | join %}
+  {% set buttonLink = ['/', config.app.basePathName] | join %}
   {# TODO: check if it goes to the previous place and check with subdomains #}
   {% include "src/_includes/components/button-link.njk" %}
 </div>
