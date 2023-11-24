@@ -1,9 +1,5 @@
 {
   "admin": {
-    "sanity": {
-      "dataset": "production",
-      "projectId": "helmkx78"
-    },
     "title": "Photo Grid - Admin Demo"
   },
   "author": {
