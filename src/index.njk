@@ -3,7 +3,7 @@ layout: layouts/base.njk
 ---
 
 {%- set gridClasses = "flex flex-wrap gap-grid" if config.ui.gridLayout == "masonry" else "grid grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] gap-grid" -%}
-{%- set gridItemClasses = "image-container relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50" if config.ui.gridLayout == "masonry" else "relative transition-opacity hover:opacity-70 active:opacity-50" -%}
+{%- set gridItemClasses = "restrict-image-width relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50" if config.ui.gridLayout == "masonry" else "relative transition-opacity hover:opacity-70 active:opacity-50" -%}
 <div class="{{ gridClasses }}">
   {%- for image in sanity -%}
     <a
