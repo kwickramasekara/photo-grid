@@ -4,7 +4,7 @@
   },
   "app": {
     "allowIndexing": "true",
-    "basePathName": "portfolio",
+    "basePathName": "",
     "domain": "https://photo-grid-demo.netlify.app",
     "port": "3333",
     "previewPathName": "photo"

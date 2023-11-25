@@ -12,7 +12,7 @@ placeholder image with the thumbnail and changes opacity of the blur overlay. -#
   {%- for image in sanity -%}
     <a
       class="image-container relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50"
-      href="{{ image | toRelativeURLFromObj }}/"
+      href="{{ image | extractImageTitleFromObj | toPreviewUrl }}/"
       style="aspect-ratio: {{ image.aspectRatio }}"
     >
       <div

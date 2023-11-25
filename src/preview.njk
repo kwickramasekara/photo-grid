@@ -4,7 +4,7 @@ pagination:
   data: sanity
   size: 1
   alias: image
-permalink: "{{ image | toRelativeURLFromObj }}/"
+permalink: "{{ image | extractImageTitleFromObj | toPreviewUrl }}/"
 eleventyComputed:
   title: "{{ image | extractImageTitleFromObj | title }} | {{ config.metadata.title }}"
   description: "{{ image.description }}"
@@ -74,7 +74,7 @@ eleventyComputed:
   {% set buttonIcon = "src/_includes/icons/close.njk" %}
   {% set buttonId = "close" %}
   {% set buttonTitle = "Close (Esc)" %}
-  {% set buttonLink = ['/', config.app.basePathName] | join %}
+  {% set buttonLink = "/" | toRelativeUrl %}
   {# TODO: check if it goes to the previous place and check with subdomains #}
   {% include "src/_includes/components/button-link.njk" %}
 </div>

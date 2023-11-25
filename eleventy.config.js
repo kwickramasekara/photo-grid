@@ -25,7 +25,7 @@ module.exports = function (eleventyConfig) {
   });
 
   // Returns the absolute URL of a given path
-  eleventyConfig.addNunjucksFilter("toAbsoluteURL", function (urlPart) {
+  eleventyConfig.addNunjucksFilter("toAbsoluteUrl", function (urlPart) {
     const { domain, basePathName } = photoGridConfig.app;
     const homePageURL = basePathName ? `${domain}/${basePathName}` : domain;
 
@@ -36,18 +36,29 @@ module.exports = function (eleventyConfig) {
       : homePageURL;
   });
 
-  // Returns the relative URL of a given Sanity data object (see src/_data/sanity.js)
-  eleventyConfig.addNunjucksFilter(
-    "toRelativeURLFromObj",
-    function (sanityImageObj) {
-      const extractedTitle = eleventyConfig.getFilter(
-        "extractImageTitleFromObj",
-      )(sanityImageObj);
-      const slug = eleventyConfig.getFilter("slugify")(extractedTitle);
+  // Returns the relative URL of a given path
+  eleventyConfig.addNunjucksFilter("toRelativeUrl", function (urlPart) {
+    const { basePathName } = photoGridConfig.app;
+    const basePath = basePathName ? `/${basePathName}` : "";
 
-      return photoGridConfig.app.previewPathName
-        ? `${photoGridConfig.app.previewPathName}/${slug}`
-        : `${slug}`;
+    return urlPart
+      ? urlPart.charAt(0) === "/"
+        ? `${basePath}${urlPart}`
+        : `${basePath}/${urlPart}`
+      : `${basePath}`;
+  });
+
+  // Returns the preview URL of a given image title
+  // Accepts optional absoluteUrl parameter to return an absolute URL
+  eleventyConfig.addNunjucksFilter(
+    "toPreviewUrl",
+    function (imageTitle, absoluteUrl = false) {
+      const slug = eleventyConfig.getFilter("slugify")(imageTitle);
+      const previewPath = `${photoGridConfig.app.previewPathName}/${slug}`;
+
+      return absoluteUrl
+        ? eleventyConfig.getFilter("toAbsoluteUrl")(previewPath)
+        : eleventyConfig.getFilter("toRelativeUrl")(previewPath);
     },
   );
 

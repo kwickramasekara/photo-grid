@@ -8,21 +8,21 @@
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xml:base="{{ metadata.url }}" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>{{ config.metadata.title }}</title>
-    <link>{{ '' | toAbsoluteURL }}</link>
-    <atom:link href="{{  permalink | toAbsoluteURL }}" rel="self" type="application/rss+xml" />
+    <link>{{ '' | toAbsoluteUrl }}</link>
+    <atom:link href="{{  permalink | toAbsoluteUrl }}" rel="self" type="application/rss+xml" />
     <description>{{ config.metadata.description }}</description>
     <language>{{ config.metadata.language }}</language>
     {%- for image in sanity %}
     <item>
       <title>{{ image.title or "Untitled" }}</title>
-      <link>{{  image | toRelativeURLFromObj | toAbsoluteURL }}</link>
+      <link>{{  image | extractImageTitleFromObj | toPreviewUrl(true) }}</link>
       <description><![CDATA[
         <img src="{{ image | toOptimizedURLFromObj | safe }}" alt="{{ image.title or "Untitled" }}">
         <p>{{ image.description }}</p>
       ]]></description>
       <pubDate>{{ image.createdAt | toRFC822Date }}</pubDate>
       <dc:creator>{{ config.author.name }}</dc:creator>
-      <guid>{{ image | toRelativeURLFromObj | toAbsoluteURL }}</guid>
+      <guid>{{ image | extractImageTitleFromObj | toPreviewUrl(true) }}</guid>
     </item>
     {%- endfor %}
   </channel>
