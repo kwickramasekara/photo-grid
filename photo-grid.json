@@ -23,6 +23,7 @@
     "colorPreference": "auto",
     "displayOrder": "desc",
     "gridGap": "0.25",
+    "gridLayout": "masonry",
     "previewImageWidth": "2048",
     "showDetails": "true",
     "showDetailsExif": "true",
