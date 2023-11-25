@@ -2,34 +2,19 @@
 layout: layouts/base.njk
 ---
 
-{#- Rendering technique: this uses flexbox to create a masonry grid layout.
-Inside each container,there are 3 elements - 1 blur overlay and 2 image
-elements. First image element loads a small base64 placeholder image (lqip), and
-the second image element loads the thumbnail image. Once loaded, it replaces
-placeholder image with the thumbnail and changes opacity of the blur overlay. -#}
-
-<div class="gap-grid flex flex-wrap">
+{%- set gridClasses = "flex flex-wrap gap-grid" if config.ui.gridLayout == "masonry" else "grid grid-cols-[repeat(auto-fill,_minmax(320px,_1fr))] gap-grid" -%}
+{%- set gridItemClasses = "restrict-image-width relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50" if config.ui.gridLayout == "masonry" else "relative transition-opacity hover:opacity-70 active:opacity-50" -%}
+<div class="{{ gridClasses }}">
   {%- for image in sanity -%}
     <a
-      class="image-container relative h-[40vh] max-h-full max-w-full grow leading-[40vh] transition-opacity hover:opacity-70 active:opacity-50"
+      class="{{ gridItemClasses }}"
       href="{{ image | extractImageTitleFromObj | toPreviewUrl }}/"
-      style="aspect-ratio: {{ image.aspectRatio }}"
     >
-      <div
-        class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"
-      ></div>
-      <img
-        alt="{{ image.altText or image.title or 'Description not available' }}"
-        class="max-h-full min-h-full min-w-full max-w-full object-cover"
-        src="{{ image.lqip }}"
-        style="aspect-ratio: {{ image.aspectRatio }}"
-      />
-      <img
-        alt="{{ 'Description not available' }}"
-        class="hidden"
-        onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
-        src="{{ image | toOptimizedURLFromObj(true) | safe }}"
-      />
+      {%- set imgObj = image -%}
+      {%- set thumbnail = true -%}
+      {%- set aspectRatio = "1 / 1" if config.ui.gridLayout != "masonry" -%}
+      {%- set placeholderClasses = "max-h-full min-h-full min-w-full max-w-full object-cover" if config.ui.gridLayout == "masonry" else "h-full w-full object-cover" -%}
+      {%- include "src/_includes/components/image-renderer.njk" -%}
     </a>
   {%- endfor -%}
 </div>

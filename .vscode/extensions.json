@@ -1,6 +1,3 @@
 {
-  "recommendations": [
-    "ginfuru.better-nunjucks",
-    "streetsidesoftware.code-spell-checker"
-  ]
+  "recommendations": ["ginfuru.better-nunjucks"]
 }
