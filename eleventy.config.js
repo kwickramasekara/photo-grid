@@ -1,12 +1,11 @@
 const EleventyVitePlugin = require("@11ty/eleventy-plugin-vite");
-const photoGridConfig = require("./src/_data/config");
+const photoGridConfig = require("./photo-grid.json");
 const viteConfig = require("./vite.config");
-const config = require("./photo-grid.json");
 
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(EleventyVitePlugin, {
     serverOptions: {
-      port: photoGridConfig.port,
+      port: photoGridConfig.app.port,
     },
     viteOptions: viteConfig,
   });
@@ -26,9 +25,9 @@ module.exports = function (eleventyConfig) {
   });
 
   // Returns the absolute URL of a given path
-  eleventyConfig.addNunjucksFilter("toAbsoluteURL", function (urlPart) {
-    const { siteUrl, basePathName } = config;
-    const homePageURL = basePathName ? `${siteUrl}/${basePathName}` : siteUrl;
+  eleventyConfig.addNunjucksFilter("toAbsoluteUrl", function (urlPart) {
+    const { domain, basePathName } = photoGridConfig.app;
+    const homePageURL = basePathName ? `${domain}/${basePathName}` : domain;
 
     return urlPart
       ? urlPart.charAt(0) === "/"
@@ -37,18 +36,29 @@ module.exports = function (eleventyConfig) {
       : homePageURL;
   });
 
-  // Returns the relative URL of a given Sanity data object (see src/_data/sanity.js)
-  eleventyConfig.addNunjucksFilter(
-    "toRelativeURLFromObj",
-    function (sanityImageObj) {
-      const extractedTitle = eleventyConfig.getFilter(
-        "extractImageTitleFromObj",
-      )(sanityImageObj);
-      const slug = eleventyConfig.getFilter("slugify")(extractedTitle);
+  // Returns the relative URL of a given path
+  eleventyConfig.addNunjucksFilter("toRelativeUrl", function (urlPart) {
+    const { basePathName } = photoGridConfig.app;
+    const basePath = basePathName ? `/${basePathName}` : "";
 
-      return config.previewPathName
-        ? `${config.previewPathName}/${slug}`
-        : `${slug}`;
+    return urlPart
+      ? urlPart.charAt(0) === "/"
+        ? `${basePath}${urlPart}`
+        : `${basePath}/${urlPart}`
+      : `${basePath}`;
+  });
+
+  // Returns the preview URL of a given image title
+  // Accepts optional absoluteUrl parameter to return an absolute URL
+  eleventyConfig.addNunjucksFilter(
+    "toPreviewUrl",
+    function (imageTitle, absoluteUrl = false) {
+      const slug = eleventyConfig.getFilter("slugify")(imageTitle);
+      const previewPath = `${photoGridConfig.app.previewPathName}/${slug}`;
+
+      return absoluteUrl
+        ? eleventyConfig.getFilter("toAbsoluteUrl")(previewPath)
+        : eleventyConfig.getFilter("toRelativeUrl")(previewPath);
     },
   );
 
@@ -59,7 +69,9 @@ module.exports = function (eleventyConfig) {
     "toOptimizedURLFromObj",
     function (sanityImageObj, thumbnail = false) {
       const { url, aspectRatio } = sanityImageObj;
-      const size = thumbnail ? config.thumbnailWidth : config.previewImageWidth;
+      const size = thumbnail
+        ? photoGridConfig.ui.thumbnailWidth
+        : photoGridConfig.ui.previewImageWidth;
 
       return `${url}?auto=format&${aspectRatio > 1 ? "w=" : "h="}${size}`;
     },

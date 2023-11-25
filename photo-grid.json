@@ -1,29 +1,31 @@
 {
   "admin": {
-    "sanity": {
-      "dataset": "production",
-      "projectId": "helmkx78"
-    },
     "title": "Photo Grid - Admin Demo"
+  },
+  "app": {
+    "allowIndexing": "true",
+    "basePathName": "",
+    "domain": "https://photo-grid-demo.netlify.app",
+    "port": "3333",
+    "previewPathName": "photo"
   },
   "author": {
     "instagram": "john_doe",
     "name": "John Doe",
     "url": "https://example.com/about-me"
   },
-  "allowIndexing": "true",
-  "basePathName": "",
-  "colorPreference": "auto",
-  "description": "Photography Portfolio of John Doe.",
-  "displayOrder": "desc",
-  "gridGap": "0.25",
-  "language": "en",
-  "port": "3333",
-  "previewImageWidth": "2048",
-  "previewPathName": "photo",
-  "showDetails": "true",
-  "showDetailsExif": "true",
-  "siteUrl": "https://photo-grid-demo.netlify.app",
-  "thumbnailWidth": "640",
-  "title": "Photo Grid"
+  "metadata": {
+    "description": "Photography Portfolio of John Doe.",
+    "language": "en",
+    "title": "Photo Grid"
+  },
+  "ui": {
+    "colorPreference": "auto",
+    "displayOrder": "desc",
+    "gridGap": "0.25",
+    "previewImageWidth": "2048",
+    "showDetails": "true",
+    "showDetailsExif": "true",
+    "thumbnailWidth": "640"
+  }
 }

@@ -1,11 +1,11 @@
 {# Metadata -#}
-{%- set metaTitle = title | safe if title else config.title | safe -%}
-{%- set metaDescription = description | truncate(160) if description else config.description -%}
-{%- set metaImage = [imageUrl,"?w=1200&fm=jpg"] | join if imageUrl else [config.siteUrl, "/metadata/meta-image.jpg"] | join -%}
-{%- set metaUrl = config.siteUrl -%}
+{%- set metaTitle = title | safe if title else config.metadata.title | safe -%}
+{%- set metaDescription = description | truncate(160) if description else config.metadata.description -%}
+{%- set metaImage = [imageUrl,"?w=1200&fm=jpg"] | join if imageUrl else "/metadata/meta-image.jpg" | toAbsoluteUrl -%}
+{%- set metaUrl = config.app.domain -%}
 
 <!doctype html>
-<html lang="{{ config.language }}">
+<html lang="{{ config.metadata.language }}">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -46,14 +46,14 @@
     />
     <link rel="icon" type="image/x-icon" href="/metadata/favicon.ico" />
 
-    {%- if config.allowIndexing === "false" -%}
+    {%- if config.app.allowIndexing == "false" -%}
       <meta name="robots" content="noindex" />
     {%- endif -%}
 
     <script type="module" src="/js/main.ts"></script>
   </head>
   <body
-    class="{% if config.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}"
+    class="{% if config.ui.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.ui.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}"
   >
     {{ content | safe }}
 

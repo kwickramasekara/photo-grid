@@ -4,9 +4,9 @@ pagination:
   data: sanity
   size: 1
   alias: image
-permalink: "{{ image | toRelativeURLFromObj }}/"
+permalink: "{{ image | extractImageTitleFromObj | toPreviewUrl }}/"
 eleventyComputed:
-  title: "{{ image | extractImageTitleFromObj | title }} | {{ config.title }}"
+  title: "{{ image | extractImageTitleFromObj | title }} | {{ config.metadata.title }}"
   description: "{{ image.description }}"
   imageUrl: "{{ image.url }}"
 ---
@@ -34,51 +34,51 @@ eleventyComputed:
   </div>
 
   {# Details dialog (modal) markup #}
-  {%- if config.showDetails == "true" -%}
-    {% set imgObj = image %}
-    {% include "src/_includes/components/dialog-details.njk" %}
+  {%- if config.ui.showDetails == "true" -%}
+    {%- set imgObj = image -%}
+    {%- include "src/_includes/components/dialog-details.njk" -%}
   {%- endif -%}
 </div>
 
 {# Buttons #}
 {%- if pagination.href.previous -%}
   <div class="flex fixed top-0 left-0 items-center min-h-[100svh]">
-    {% set buttonIcon = "src/_includes/icons/previous.njk" %}
-    {% set buttonId = "previous" %}
-    {% set buttonTitle = "Previous (←)" %}
-    {% set buttonLink = pagination.href.previous %}
-    {% include "src/_includes/components/button-link.njk" %}
+    {%- set buttonIcon = "src/_includes/icons/previous.njk" -%}
+    {%- set buttonId = "previous" -%}
+    {%- set buttonTitle = "Previous (←)" -%}
+    {%- set buttonLink = pagination.href.previous -%}
+    {%- include "src/_includes/components/button-link.njk" -%}
   </div>
 {%- endif -%}
 
 {%- if pagination.href.next -%}
   <div class="flex fixed top-0 right-0 items-center min-h-[100svh]">
-    {% set buttonIcon = "src/_includes/icons/next.njk" %}
-    {% set buttonId = "next" %}
-    {% set buttonTitle = "Next (→)" %}
-    {% set buttonLink = pagination.href.next %}
-    {% include "src/_includes/components/button-link.njk" %}
+    {%- set buttonIcon = "src/_includes/icons/next.njk" -%}
+    {%- set buttonId = "next" -%}
+    {%- set buttonTitle = "Next (→)" -%}
+    {%- set buttonLink = pagination.href.next -%}
+    {%- include "src/_includes/components/button-link.njk" -%}
   </div>
 {%- endif -%}
 
 <div class="fixed top-0 right-0">
   {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
-  {%- if config.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
-    {% set buttonIcon = "src/_includes/icons/details.njk" %}
-    {% set buttonClasses = "float-left" %}
-    {% set buttonId = "details" %}
-    {% set buttonTitle = "Details (D)" %}
-    {% set buttonClickFunc = "(function(){ document.getElementById('dialog-details').showModal();})(this)" %}
-    {% include "src/_includes/components/button.njk" %}
+  {%- if config.ui.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
+    {%- set buttonIcon = "src/_includes/icons/details.njk" -%}
+    {%- set buttonClasses = "float-left" -%}
+    {%- set buttonId = "details" -%}
+    {%- set buttonTitle = "Details (D)" -%}
+    {%- set buttonClickFunc = "(function(){ document.getElementById('dialog-details').showModal();})(this)" -%}
+    {%- include "src/_includes/components/button.njk" -%}
   {%- endif -%}
-  {% set buttonIcon = "src/_includes/icons/close.njk" %}
-  {% set buttonId = "close" %}
-  {% set buttonTitle = "Close (Esc)" %}
-  {% set buttonLink = ['/', config.basePathName] | join %}
+  {%- set buttonIcon = "src/_includes/icons/close.njk" -%}
+  {%- set buttonId = "close" -%}
+  {%- set buttonTitle = "Close (Esc)" -%}
+  {%- set buttonLink = "/" | toRelativeUrl -%}
   {# TODO: check if it goes to the previous place and check with subdomains #}
-  {% include "src/_includes/components/button-link.njk" %}
+  {%- include "src/_includes/components/button-link.njk" -%}
 </div>
 
-{% block js %}
+{%- block js -%}
   <script type="module" src="/js/preview.ts"></script>
-{% endblock %}
+{%- endblock -%}
