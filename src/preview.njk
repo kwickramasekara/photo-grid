@@ -16,21 +16,9 @@ eleventyComputed:
     class="max-w-[100vw] min-h-[100svh] relative flex items-center"
     style="aspect-ratio: {{ image.aspectRatio | round(2) }}"
   >
-    <div
-      class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"
-    ></div>
-    <img
-      alt="{{ image.altText or image.title or 'Description not available' }}"
-      class="max-h-[100svh] min-w-full max-w-[100vw] object-cover"
-      src="{{ image.lqip }}"
-      style="aspect-ratio: {{ image.aspectRatio }}"
-    />
-    <img
-      alt="{{ image.altText or image.title or 'Description not available' }}"
-      class="hidden"
-      onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
-      src="{{ image | toOptimizedURLFromObj | safe }}"
-    />
+    {%- set imgObj = image -%}
+    {%- set placeholderClasses = "max-h-[100svh] min-w-full max-w-[100vw]" -%}
+    {%- include "src/_includes/components/image-renderer.njk" -%}
   </div>
 
   {# Details dialog (modal) markup #}

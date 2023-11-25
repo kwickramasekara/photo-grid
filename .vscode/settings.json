@@ -1,6 +1,3 @@
 {
-  "[html]": {
-    "editor.formatOnSave": false
-  },
   "cSpell.words": ["exif", "lqip", "tailwindcss"]
 }

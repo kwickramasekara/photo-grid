@@ -1,0 +1,20 @@
+{# Rendering technique: there are 3 elements - 1 blur overlay and 2 image
+elements. First image element loads a small base64 placeholder image (lqip), and
+the second image element loads the thumbnail image. Once loaded, it replaces
+placeholder image with the thumbnail and changes opacity of the blur overlay. -#}
+{%- set imageSrc = imgObj | toOptimizedURLFromObj(true) if thumbnail else imgObj | toOptimizedURLFromObj -%}
+<div
+  class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"
+></div>
+<img
+  alt="{{ imgObj.altText or imgObj.title or 'Description not available' }}"
+  class="{{ placeholderClasses or 'max-h-full min-h-full min-w-full max-w-full object-cover' }}"
+  src="{{ imgObj.lqip }}"
+  style="aspect-ratio: {{ imgObj.aspectRatio }}"
+/>
+<img
+  alt="{{ imgObj.altText or imgObj.title or 'Description not available' }}"
+  class="hidden"
+  onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
+  src="{{ imageSrc | safe }}"
+/>
