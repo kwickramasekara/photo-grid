@@ -17,6 +17,13 @@ module.exports = async function () {
 
   const url = `https://${projectId}.api.sanity.io/${APIVersion}/data/query/${dataset}?query=${encodedQuery}`;
 
+  if (!projectId) {
+    console.log(
+      "ERROR: No Sanity project ID found. Please add one to your environment variables.\n",
+    );
+    return;
+  }
+
   return EleventyFetch(url, {
     directory: "./node_modules/.cache/photo-grid/data/sanity",
     duration: process.env.CACHE_DURATION || "0s", // fetch data every time by default
