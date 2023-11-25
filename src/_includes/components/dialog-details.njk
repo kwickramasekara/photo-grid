@@ -1,37 +1,37 @@
 {# Color scheme #}
 {# Tailwind needs to see full class names; can't use variables within classes as a result #}
 {%- if config.ui.colorPreference == 'dark' -%}
-  {% set dialogBgColor = "bg-black/30" %}
-  {% set dialogBorderColor = "border-white/10" %}
-  {% set dividerColor = "before:text-gray-300" %}
-  {% set headerTextColor = "text-gray-50" %}
-  {% set tagBgColor = "bg-gray-200/30" %}
-  {% set textColor = "text-gray-100" %}
+  {%- set dialogBgColor = "bg-black/30" -%}
+  {%- set dialogBorderColor = "border-white/10" -%}
+  {%- set dividerColor = "before:text-gray-300" -%}
+  {%- set headerTextColor = "text-gray-50" -%}
+  {%- set tagBgColor = "bg-gray-200/30" -%}
+  {%- set textColor = "text-gray-100" -%}
 {%- elif config.ui.colorPreference == 'light' -%}
-  {% set dialogBgColor = "bg-white/40" %}
-  {% set dialogBorderColor = "border-black/10" %}
-  {% set dividerColor = "before:text-gray-600" %}
-  {% set headerTextColor = "text-gray-950" %}
-  {% set tagBgColor = "bg-gray-300/30" %}
-  {% set textColor = "text-gray-900" %}
+  {%- set dialogBgColor = "bg-white/40" -%}
+  {%- set dialogBorderColor = "border-black/10" -%}
+  {%- set dividerColor = "before:text-gray-600" -%}
+  {%- set headerTextColor = "text-gray-950" -%}
+  {%- set tagBgColor = "bg-gray-300/30" -%}
+  {%- set textColor = "text-gray-900" -%}
 {%- else -%}
-  {% set dialogBgColor = "bg-white/40 dark:bg-black/30" %}
-  {% set dialogBorderColor = "border-black/10 dark:border-white/10" %}
-  {% set dividerColor = "before:text-gray-600 dark:before:text-gray-300" %}
-  {% set headerTextColor = "text-gray-950 dark:text-gray-50" %}
-  {% set tagBgColor = "bg-gray-300/30 dark:bg-gray-200/30" %}
-  {% set textColor = "text-gray-900 dark:text-gray-100" %}
+  {%- set dialogBgColor = "bg-white/40 dark:bg-black/30" -%}
+  {%- set dialogBorderColor = "border-black/10 dark:border-white/10" -%}
+  {%- set dividerColor = "before:text-gray-600 dark:before:text-gray-300" -%}
+  {%- set headerTextColor = "text-gray-950 dark:text-gray-50" -%}
+  {%- set tagBgColor = "bg-gray-300/30 dark:bg-gray-200/30" -%}
+  {%- set textColor = "text-gray-900 dark:text-gray-100" -%}
 {%- endif -%}
 
 {# Calculate shutter speed #}
 {# https://photo.stackexchange.com/questions/108817/shutter-speed-from-the-exif-shutterspeedvalue #}
 {%- if imgObj.exif.ShutterSpeedValue -%}
   {%- if imgObj.exif.ShutterSpeedValue < 0 -%}
-    {% set base = 2**(-imgObj.exif.ShutterSpeedValue) %}
-    {% set calculatedShutterSpeed = base | round(-1) %}
+    {%- set base = 2**(-imgObj.exif.ShutterSpeedValue) -%}
+    {%- set calculatedShutterSpeed = base | round(-1) -%}
   {%- else -%}
-    {% set base = 2**imgObj.exif.ShutterSpeedValue %}
-    {% set calculatedShutterSpeed = '1/' + base | round(-1) %}
+    {%- set base = 2**imgObj.exif.ShutterSpeedValue -%}
+    {%- set calculatedShutterSpeed = '1/' + base | round(-1) -%}
   {%- endif -%}
 {%- endif -%}
 
