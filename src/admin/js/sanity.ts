@@ -2,7 +2,6 @@ import { defineConfig, defineType, renderStudio } from "sanity";
 import { UserIcon } from "@sanity/icons";
 import { media } from "sanity-plugin-media";
 import { admin } from "../../../photo-grid.json";
-import { visionTool } from "@sanity/vision";
 
 const config = defineConfig({
   basePath: "/admin",
@@ -11,7 +10,7 @@ const config = defineConfig({
     newDocumentOptions: () => [],
   },
   icon: UserIcon,
-  plugins: [media(), visionTool()],
+  plugins: [media()],
   projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   title: admin.title,
   schema: {
