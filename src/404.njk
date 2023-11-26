@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+permalink: "404.html"
+eleventyComputed:
+  title: 404 | {{ config.metadata.title }}
+---
+
+{%- if config.ui.colorPreference == "dark" -%}
+  {%- set textPrimary = "text-white" -%}
+{%- elif config.ui.colorPreference == "light" -%}
+  {%- set textPrimary = "text-black" -%}
+{%- else -%}
+  {%- set textPrimary = "text-black dark:text-white" -%}
+{%- endif -%}
+<main class="h-screen flex items-center justify-center justify-self-center">
+  <div class="">
+    <p class="text-center text-lg font-medium {{ textPrimary }}">
+      404 | Not Found
+    </p>
+    <br />
+    <p class="text-gray-500 text-center">
+      Go back to the
+      <a class="hover:text-sky-500 underline cursor-pointer">home page</a>
+    </p>
+  </div>
+</main>
