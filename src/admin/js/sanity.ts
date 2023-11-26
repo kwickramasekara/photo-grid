@@ -6,13 +6,13 @@ import { visionTool } from "@sanity/vision";
 
 const config = defineConfig({
   basePath: "/admin",
-  dataset: import.meta.env.SANITY_STUDIO_DATASET || admin.sanity.dataset,
+  dataset: import.meta.env.SANITY_STUDIO_DATASET || "production",
   document: {
     newDocumentOptions: () => [],
   },
   icon: UserIcon,
   plugins: [media(), visionTool()],
-  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID || admin.sanity.projectId,
+  projectId: import.meta.env.SANITY_STUDIO_PROJECT_ID,
   title: admin.title,
   schema: {
     types: [
