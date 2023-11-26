@@ -50,21 +50,31 @@ eleventyComputed:
 {%- endif -%}
 
 <div class="fixed top-0 right-0">
+  {%- set buttonIcon = "src/_includes/icons/close.njk" -%}
+  {%- set buttonId = "close" -%}
+  {%- set buttonClasses = "float-right" -%}
+  {%- set buttonTitle = "Close (Esc)" -%}
+  {%- set buttonLink = "/" | toRelativeUrl -%}
+  {# TODO: check if it goes to the previous place and check with subdomains #}
+  {%- include "src/_includes/components/button-link.njk" -%}
+
   {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
   {%- if config.ui.showDetails == 'true' and image.title or image.description or image.exif | length > 5 or image.tags -%}
     {%- set buttonIcon = "src/_includes/icons/details.njk" -%}
-    {%- set buttonClasses = "float-left" -%}
+    {%- set buttonClasses = "float-right" -%}
     {%- set buttonId = "details" -%}
     {%- set buttonTitle = "Details (D)" -%}
     {%- set buttonClickFunc = "(function(){ document.getElementById('dialog-details').showModal();})(this)" -%}
     {%- include "src/_includes/components/button.njk" -%}
   {%- endif -%}
-  {%- set buttonIcon = "src/_includes/icons/close.njk" -%}
-  {%- set buttonId = "close" -%}
-  {%- set buttonTitle = "Close (Esc)" -%}
-  {%- set buttonLink = "/" | toRelativeUrl -%}
-  {# TODO: check if it goes to the previous place and check with subdomains #}
-  {%- include "src/_includes/components/button-link.njk" -%}
+  {%- if config.ui.allowDownload == "true" -%}
+    {%- set buttonIcon = "src/_includes/icons/download.njk" -%}
+    {%- set buttonId = "download" -%}
+    {%- set buttonClasses = "float-right" -%}
+    {%- set buttonTitle = "Download (S)" -%}
+    {%- set buttonLink = [image.url, "?dl"] | join -%}
+    {%- include "src/_includes/components/button-link.njk" -%}
+  {%- endif -%}
 </div>
 
 {%- block js -%}

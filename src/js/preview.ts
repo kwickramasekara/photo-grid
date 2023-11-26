@@ -1,6 +1,7 @@
 (() => {
   const dialog = document.getElementById("dialog-details") as HTMLDialogElement;
 
+  // Keyboard shortcuts
   document.addEventListener("keydown", function (event) {
     if (event.key === "ArrowRight") {
       document.getElementById("next").click();
@@ -16,6 +17,13 @@
         } else {
           dialog.showModal();
         }
+      }
+    } else if (event.key === "s" || event.key === "S") {
+      const downloadBtn = document.getElementById("download");
+
+      // Only open the dialog if it can be opened (details button is only shown when there are details)
+      if (downloadBtn) {
+        downloadBtn.click();
       }
     } else if (event.key === "Escape") {
       if (dialog.open) {

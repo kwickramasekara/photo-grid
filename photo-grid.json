@@ -20,6 +20,7 @@
     "title": "Photo Grid"
   },
   "ui": {
+    "allowDownload": "true",
     "colorPreference": "auto",
     "displayOrder": "desc",
     "gridGap": "0.25",
