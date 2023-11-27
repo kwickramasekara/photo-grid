@@ -9,6 +9,9 @@ eleventyComputed:
   title: "{{ image | extractImageTitleFromObj | title }} | {{ config.metadata.title }}"
   description: "{{ image.description }}"
   imageUrl: "{{ image.url }}"
+  bgColors:
+    from: "{{ image.palette.dominant.background if config.ui.previewBgDynamicColors == 'true' else '' }}"
+    to: "{{ image.palette.muted.background if config.ui.previewBgDynamicColors == 'true' else '' }}"
 ---
 
 <div class="flex h-[100svh] w-screen items-center justify-center">

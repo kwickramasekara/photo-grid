@@ -3,6 +3,7 @@
 {%- set metaDescription = description | truncate(160) if description else config.metadata.description -%}
 {%- set metaImage = [imageUrl,"?w=1200&fm=jpg"] | join if imageUrl else "/metadata/meta-image.jpg" | toAbsoluteUrl -%}
 {%- set metaUrl = config.app.domain -%}
+{%- set bgColor = "bg-black" if config.ui.colorPreference == "dark" else ("bg-white" if config.ui.colorPreference == "light" else "bg-white dark:bg-black") -%}
 
 <!doctype html>
 <html lang="{{ config.metadata.language }}">
@@ -53,7 +54,10 @@
     <script type="module" src="/js/main.ts"></script>
   </head>
   <body
-    class="{% if config.ui.colorPreference == 'auto' %}bg-white dark:bg-black{% elif config.ui.colorPreference == 'dark' %}bg-black{% else %}bg-white{% endif %}"
+    class="{{ 'bg-gradient-to-br' if bgColors.from else bgColor }}"
+    {% if bgColors.from and bgColors.to %}
+      style="--tw-gradient-stops: {{ bgColors.from }}, {{ bgColors.to }};"
+    {% endif %}
   >
     {{ content | safe }}
 

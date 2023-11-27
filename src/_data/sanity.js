@@ -12,7 +12,7 @@ module.exports = async function () {
   const projectId = process.env.SANITY_STUDIO_PROJECT_ID;
   const dataset = process.env.SANITY_STUDIO_DATASET || "production";
   const APIVersion = "v2023-06-02"; // Today's date in YYYY-MM-DD format for the latest version
-  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.ui.displayOrder}) { altText, description, title, url, "createdAt": _createdAt, "fileName": originalFilename, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height, "tags": opt.media.tags[]->name.current, "exif": metadata.exif }`;
+  const query = `*[_type == "sanity.imageAsset"] | order(_createdAt ${config.ui.displayOrder}) { altText, description, title, url, "createdAt": _createdAt, "fileName": originalFilename, "lqip":metadata.lqip, "aspectRatio":metadata.dimensions.aspectRatio, "width":metadata.dimensions.width, "height":metadata.dimensions.height, "tags": opt.media.tags[]->name.current, "exif": metadata.exif, "palette": metadata.palette }`;
   const encodedQuery = encodeURIComponent(query);
 
   const url = `https://${projectId}.api.sanity.io/${APIVersion}/data/query/${dataset}?query=${encodedQuery}`;
