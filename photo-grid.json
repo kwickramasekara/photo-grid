@@ -10,9 +10,11 @@
     "previewPathName": "photo"
   },
   "author": {
-    "instagram": "john_doe",
     "name": "John Doe",
-    "url": "https://example.com/about-me"
+    "links": {
+      "github": "https://github.com/kwickramasekara/photo-grid",
+      "app": "https://photo-grid-demo.netlify.app/"
+    }
   },
   "metadata": {
     "description": "Photography Portfolio of John Doe.",

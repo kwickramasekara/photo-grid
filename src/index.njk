@@ -18,3 +18,16 @@ layout: layouts/base.njk
     </a>
   {%- endfor -%}
 </div>
+
+<div class="author-links fixed bottom-0 right-0">
+  {%- for authorLink in links -%}
+    <a
+      href="{{ authorLink.url or '#' }}"
+      target="_blank"
+      class="inline-block rounded-full outline-0 m-2 p-2 text-gray-950 bg-gray-300 bg-opacity-25 hover:bg-opacity-50 drop-shadow backdrop-blur-sm duration-300"
+      title="{{ authorLink.name or 'External link' }}"
+    >
+      {{ authorLink.icon | safe }}
+    </a>
+  {%- endfor -%}
+</div>
