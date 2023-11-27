@@ -1,10 +1,7 @@
-const userdata = {
-  app: "https://photo-grid-demo.netlify.app/",
-  github: "https://github.com/kwickramasekara/photo-grid",
-};
+const config = require("../../photo-grid.json");
 
 const genericIcon =
-  "<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71'></path><path d='M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71'></path></svg>";
+  "<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><circle cx='12' cy='12' r='10'></circle><line x1='2' y1='12' x2='22' y2='12'></line><path d='M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z'></path></svg>";
 
 const getIcon = function (name) {
   if (!name) return genericIcon;
@@ -20,7 +17,7 @@ const getIcon = function (name) {
 module.exports = function () {
   let externalIcons = [];
 
-  Object.entries(userdata).forEach(([key, value]) => {
+  Object.entries(config.author.links).forEach(([key, value]) => {
     externalIcons.push({
       name: key,
       url: value,
