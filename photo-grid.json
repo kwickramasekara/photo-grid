@@ -25,6 +25,7 @@
     "displayOrder": "desc",
     "gridGap": "0.25",
     "gridLayout": "masonry",
+    "previewBgDynamicColors": "false",
     "previewImageWidth": "2048",
     "showDetails": "true",
     "showDetailsExif": "true",
