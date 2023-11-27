@@ -2,7 +2,7 @@
 elements. First image element loads a small base64 placeholder image (lqip), and
 the second image element loads the thumbnail image. Once loaded, it replaces
 placeholder image with the thumbnail and changes opacity of the blur overlay. -#}
-{%- set imageSrc = imgObj | toOptimizedURLFromObj(true) if thumbnail else imgObj | toOptimizedURLFromObj -%}
+{%- set imageSrc = imgObj | toOptimizedUrlFromObj(true) if thumbnail else imgObj | toOptimizedUrlFromObj -%}
 <div
   class="absolute min-h-full min-w-full backdrop-blur-xl transition-opacity duration-1000"
 ></div>

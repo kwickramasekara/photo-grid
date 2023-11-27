@@ -66,7 +66,7 @@ module.exports = function (eleventyConfig) {
   // Optimizations include: browser based file format, max width or height based on aspect ratio
   // Optional thumbnail parameter returns a smaller sized image
   eleventyConfig.addNunjucksFilter(
-    "toOptimizedURLFromObj",
+    "toOptimizedUrlFromObj",
     function (sanityImageObj, thumbnail = false) {
       const { url, aspectRatio } = sanityImageObj;
       const size = thumbnail

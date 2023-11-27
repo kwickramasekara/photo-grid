@@ -17,7 +17,7 @@
       <title>{{ image.title or "Untitled" }}</title>
       <link>{{  image | extractImageTitleFromObj | toPreviewUrl(true) }}</link>
       <description><![CDATA[
-        <img src="{{ image | toOptimizedURLFromObj | safe }}" alt="{{ image.title or "Untitled" }}">
+        <img src="{{ image | toOptimizedUrlFromObj | safe }}" alt="{{ image.title or "Untitled" }}">
         <p>{{ image.description }}</p>
       ]]></description>
       <pubDate>{{ image.createdAt | toRFC822Date }}</pubDate>
