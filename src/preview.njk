@@ -33,7 +33,7 @@ eleventyComputed:
 
 {# Buttons #}
 {%- if pagination.href.previous -%}
-  <div class="flex fixed top-0 left-0 items-center min-h-[100svh]">
+  <div class="flex fixed top-0 left-0 mx-2 items-center min-h-[100svh]">
     {%- set buttonIcon = "src/_includes/icons/previous.njk" -%}
     {%- set buttonId = "previous" -%}
     {%- set buttonTitle = "Previous (←)" -%}
@@ -43,7 +43,7 @@ eleventyComputed:
 {%- endif -%}
 
 {%- if pagination.href.next -%}
-  <div class="flex fixed top-0 right-0 items-center min-h-[100svh]">
+  <div class="flex fixed top-0 right-0 mx-2 items-center min-h-[100svh]">
     {%- set buttonIcon = "src/_includes/icons/next.njk" -%}
     {%- set buttonId = "next" -%}
     {%- set buttonTitle = "Next (→)" -%}
@@ -52,7 +52,7 @@ eleventyComputed:
   </div>
 {%- endif -%}
 
-<div class="fixed top-0 right-0">
+<div class="fixed top-0 right-0 m-2">
   {%- set buttonIcon = "src/_includes/icons/close.njk" -%}
   {%- set buttonId = "close" -%}
   {%- set buttonClasses = "float-right" -%}

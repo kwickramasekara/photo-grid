@@ -4,6 +4,10 @@
 
 /* === Custom styles === */
 
+.author-links svg {
+  width: 20px;
+}
+
 /* avoid stretching the image too much on portrait screens */
 @media screen and (min-aspect-ratio: 0.75) and (max-aspect-ratio: 1.3) {
   .restrict-image-width {
