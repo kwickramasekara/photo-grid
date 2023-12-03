@@ -66,7 +66,7 @@ eleventyComputed:
     {%- set buttonIcon = "src/_includes/icons/details.njk" -%}
     {%- set buttonClasses = "float-right" -%}
     {%- set buttonId = "details" -%}
-    {%- set buttonTitle = "Details (D)" -%}
+    {%- set buttonTitle = "Details (I)" -%}
     {%- set buttonClickFunc = "(function(){ document.getElementById('dialog-details').showModal();})(this)" -%}
     {%- include "src/_includes/components/button.njk" -%}
   {%- endif -%}
@@ -74,7 +74,7 @@ eleventyComputed:
     {%- set buttonIcon = "src/_includes/icons/download.njk" -%}
     {%- set buttonId = "download" -%}
     {%- set buttonClasses = "float-right" -%}
-    {%- set buttonTitle = "Download (S)" -%}
+    {%- set buttonTitle = "Download (D)" -%}
     {%- set buttonLink = [image.url, "?dl"] | join -%}
     {%- include "src/_includes/components/button-link.njk" -%}
   {%- endif -%}
