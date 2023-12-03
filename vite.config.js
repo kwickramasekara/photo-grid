@@ -26,6 +26,7 @@ module.exports = {
     chunkSizeWarningLimit: 3000, // default is 500 but Sanity Studio chunk is 2.5MB
     emptyOutDir: true,
     outDir: process.env.ELEVENTY_RUN_MODE == "serve" ? "../site" : "../dist",
+    minify: true,
     rollupOptions: {
       plugins: [copyRSS()],
     },
