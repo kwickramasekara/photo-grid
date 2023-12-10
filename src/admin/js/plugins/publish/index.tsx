@@ -1,9 +1,9 @@
 import { definePlugin } from "sanity";
 import { route } from "sanity/router";
 import { PublishIcon } from "@sanity/icons";
-import publish from "./publish";
+import component from "./component";
 
-export const deploy = definePlugin(() => {
+export const publish = definePlugin(() => {
   return {
     name: "sanity-plugin-photo-grid-publish",
     tools: [
@@ -11,7 +11,7 @@ export const deploy = definePlugin(() => {
         name: "publish",
         title: "Publish",
         icon: PublishIcon,
-        component: publish,
+        component,
         router: route.create("/*"),
       },
     ],
