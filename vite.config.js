@@ -26,6 +26,7 @@ module.exports = {
     chunkSizeWarningLimit: 3000, // default is 500 but Sanity Studio chunk is 2.5MB
     emptyOutDir: true,
     outDir: process.env.ELEVENTY_RUN_MODE == "serve" ? "../site" : "../dist",
+    minify: true,
     rollupOptions: {
       plugins: [copyRSS()],
     },
@@ -39,11 +40,16 @@ module.exports = {
       name: "forward-admin", // https://github.com/kwickramasekara/photo-grid/issues/16
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req?.url?.endsWith("admin")) {
+          if (
+            req.originalUrl === "/admin" ||
+            req.originalUrl === "/admin/media" ||
+            req.originalUrl === "/admin/publish"
+          ) {
             res.writeHead(301, { Location: "/admin/" });
             res.end();
+          } else {
+            next();
           }
-          next();
         });
       },
     },
