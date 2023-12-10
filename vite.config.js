@@ -39,11 +39,16 @@ module.exports = {
       name: "forward-admin", // https://github.com/kwickramasekara/photo-grid/issues/16
       configureServer(server) {
         server.middlewares.use((req, res, next) => {
-          if (req?.url?.endsWith("admin")) {
+          if (
+            req.originalUrl === "/admin" ||
+            req.originalUrl === "/admin/media" ||
+            req.originalUrl === "/admin/publish"
+          ) {
             res.writeHead(301, { Location: "/admin/" });
             res.end();
+          } else {
+            next();
           }
-          next();
         });
       },
     },
