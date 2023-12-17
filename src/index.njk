@@ -12,6 +12,7 @@ layout: layouts/base.njk
     >
       {%- set imgObj = image -%}
       {%- set thumbnail = true -%}
+      {%- set lazyLoading = true -%}
       {%- set aspectRatio = "1 / 1" if config.ui.gridLayout != "masonry" -%}
       {%- set placeholderClasses = "max-h-full min-h-full min-w-full max-w-full object-cover" if config.ui.gridLayout == "masonry" else "h-full w-full object-cover" -%}
       {%- include "src/_includes/components/image-renderer.njk" -%}

@@ -15,7 +15,7 @@ placeholder image with the thumbnail and changes opacity of the blur overlay. -#
 <img
   alt="{{ imgObj.altText or imgObj.title or 'Description not available' }}"
   class="hidden"
+  loading="{{ 'lazy' if lazyLoading else 'eager' }}"
   onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
   src="{{ imageSrc | safe }}"
-  loading="lazy"
 />
