@@ -8,7 +8,7 @@ placeholder image with the thumbnail and changes opacity of the blur overlay. -#
 ></div>
 <img
   alt="{{ imgObj.altText or imgObj.title or 'Description not available' }}"
-  class="{{ placeholderClasses or 'max-h-full min-h-full min-w-full max-w-full' }}"
+  class="placeholder-image {{ placeholderClasses or 'max-h-full min-h-full min-w-full max-w-full' }}"
   src="{{ imgObj.lqip }}"
   style="aspect-ratio: {{ aspectRatio or imgObj.aspectRatio | round(2) }}"
 />
@@ -17,4 +17,5 @@ placeholder image with the thumbnail and changes opacity of the blur overlay. -#
   class="hidden"
   onload="(function(el){el.onload='';el.previousElementSibling.src = el.src;el.previousElementSibling.previousElementSibling.classList.add('opacity-0')})(this)"
   src="{{ imageSrc | safe }}"
+  loading="lazy"
 />
