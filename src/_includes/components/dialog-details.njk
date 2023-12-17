@@ -55,8 +55,7 @@
 
   {%- if imgObj.description -%}
     <p
-      class="fade-bottom max-h-[11.75rem] overflow-scroll leading-7 {{ textColor }}"
-      onscroll="(function(el){if(el.scrollHeight - el.scrollTop === el.clientHeight){el.classList.remove('fade-bottom');el.classList.add('fade-top')}else{el.classList.add('fade-bottom');el.classList.remove('fade-top')}})(this)"
+      class="description-text max-h-[11.75rem] overflow-scroll leading-7 {{ textColor }}"
     >
       {{ imgObj.description }}
     </p>
