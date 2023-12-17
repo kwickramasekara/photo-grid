@@ -55,8 +55,7 @@
 
   {%- if imgObj.description -%}
     <p
-      class="max-h-44 line-clamp-6 leading-7 {{ textColor }}"
-      onclick="(function(el){el.classList.remove('line-clamp-6');el.classList.add('overflow-scroll')})(this)"
+      class="description-text max-h-[11.75rem] overflow-scroll scroll-smooth overscroll-contain leading-7 {{ textColor }}"
     >
       {{ imgObj.description }}
     </p>
@@ -72,7 +71,7 @@
             {%- include "src/_includes/icons/aperture.njk" -%}
           </span>
           <span class="ml-2 inline-block align-text-bottom max-w-xs truncate"
-            >{{ imgObj.exif.LensMake }} {{ imgObj.exif.LensModel }}</span
+            >{{ imgObj.exif.LensModel }}</span
           >
         </div>
       {%- endif -%}

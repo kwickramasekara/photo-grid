@@ -8,6 +8,16 @@
   width: 20px;
 }
 
+.fade-bottom {
+  -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+}
+
+.fade-top {
+  -webkit-mask-image: linear-gradient(to top, black 75%, transparent 100%);
+  mask-image: linear-gradient(to top, black 75%, transparent 100%);
+}
+
 /* avoid stretching the image too much on portrait screens */
 @media screen and (min-aspect-ratio: 0.75) and (max-aspect-ratio: 1.3) {
   .restrict-image-width {
