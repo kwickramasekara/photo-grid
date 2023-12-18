@@ -18,6 +18,7 @@ import {
 } from "@sanity/ui";
 import { LaunchIcon, ErrorOutlineIcon } from "@sanity/icons";
 import { app } from "../../../../../photo-grid.json";
+import { ToastParams } from "sanity";
 
 export default () => {
   const webhookUrl = import.meta.env.SANITY_STUDIO_HOST_WEBHOOK_URL;
@@ -26,14 +27,28 @@ export default () => {
   const toast = useToast();
 
   const triggerWebhook = async () => {
-    // TODO: Check for errors and toast errors
-    fetch(webhookUrl, { method: webhookMethod });
+    const errorObj = {
+      status: "error",
+      title: "Failed to trigger webhook",
+      description: "Please check the webhook URL/method and try again.",
+    } as ToastParams;
 
-    toast.push({
-      status: "success",
-      title: "Triggered Webhook",
-      description: "Please allow a few minutes for the build and deployment.",
-    });
+    fetch(webhookUrl, { method: webhookMethod })
+      .then((response) => {
+        if (response.ok) {
+          toast.push({
+            status: "success",
+            title: "Triggered Webhook",
+            description:
+              "Please allow a few minutes for the build and deployment.",
+          });
+        } else {
+          toast.push(errorObj);
+        }
+      })
+      .catch(() => {
+        toast.push(errorObj);
+      });
   };
 
   const renderNoWebhook = () => {
