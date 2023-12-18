@@ -75,7 +75,7 @@ export default () => {
               <Text size={2} muted>
                 Oops! We couldn't find a valid webhook URL. Please see{" "}
                 <a
-                  href="https://github.com/kwickramasekara/photo-grid/wiki/Configuring#environment-variables"
+                  href="https://github.com/kwickramasekara/photo-grid/wiki/Customizations#environment-variables"
                   target="_blank"
                 >
                   documentation
