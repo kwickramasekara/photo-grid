@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Javascript based self host-able photography portfolio coupled with Sanity headless CMS for asset management.",
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=20.0.0"
   },
   "scripts": {
     "build": "eleventy --config=eleventy.config.js",
