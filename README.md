@@ -1,5 +1,3 @@
-🚧 Work in progress!
-
 # Photo Grid
 
 ![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fraw.githubusercontent.com%2Fkwickramasekara%2Fphoto-grid%2Fmain%2Fpackage.json&query=%24.version&label=version&color=D686D6)
@@ -11,3 +9,5 @@ Javascript based self host-able photography portfolio coupled with [Sanity](http
 ## Documentation
 
 For detailed documentation, please see the [wiki section](https://github.com/kwickramasekara/photo-grid/wiki) which contains [installation](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#installation) and [configuration](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#configuration) guides as well as other useful information.
+
+Note: the project should be stable to use, however we are still finishing up some of the documentation. If you have any questions, please post them in our [discussions](https://github.com/kwickramasekara/photo-grid/discussions) page and we'd be happy to help!.
