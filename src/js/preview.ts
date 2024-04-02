@@ -23,7 +23,7 @@
   description?.addEventListener("scroll", (event) => {
     const el = event.target as HTMLParagraphElement;
 
-    if (el.scrollHeight - el.scrollTop === el.clientHeight) {
+    if (el.scrollHeight - el.scrollTop <= el.clientHeight) {
       el.classList.remove("fade-bottom");
       el.classList.add("fade-top");
     } else {
