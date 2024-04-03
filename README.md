@@ -6,8 +6,15 @@
 
 Javascript based self host-able photography portfolio coupled with [Sanity](https://www.sanity.io) headless CMS for asset management.
 
+![Product image](https://ucarecdn.com/b4135495-fcd3-45b0-bd46-34d54b8f798d/-/preview/1500x771/-/format/auto/)
+
 ## Documentation
 
 For detailed documentation, please see the [wiki section](https://github.com/kwickramasekara/photo-grid/wiki) which contains [installation](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#installation) and [configuration](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#configuration) guides as well as other useful information.
 
-Note: the project should be stable to use, however we are still finishing up some of the documentation. If you have any questions, please post them in our [discussions](https://github.com/kwickramasekara/photo-grid/discussions) page and we'd be happy to help!.
+## Support
+
+If you need any help or have general questions, please post them in our [discussions](https://github.com/kwickramasekara/photo-grid/discussions) page and we'd be happy to help!.
+
+---
+Note: the project should be stable to use, however we are still finishing up some of the documentation. 
