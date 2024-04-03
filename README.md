@@ -8,9 +8,13 @@ Javascript based self host-able photography portfolio coupled with [Sanity](http
 
 ![Product image](https://ucarecdn.com/b4135495-fcd3-45b0-bd46-34d54b8f798d/-/preview/1500x771/-/format/auto/)
 
+## Features
+
+A full list of features is available in the [wiki](https://github.com/kwickramasekara/photo-grid/wiki/Features) section.
+
 ## Documentation
 
-For detailed documentation, please see the [wiki section](https://github.com/kwickramasekara/photo-grid/wiki) which contains [installation](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#installation) and [configuration](https://github.com/kwickramasekara/photo-grid/wiki/Local-development#configuration) guides as well as other useful information.
+For detailed documentation, please see the [wiki](https://github.com/kwickramasekara/photo-grid/wiki) which contains a [getting started](https://github.com/kwickramasekara/photo-grid/wiki/Getting-Started) guide as well as other useful information.
 
 ## Support
 
