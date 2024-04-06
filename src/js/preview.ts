@@ -19,6 +19,17 @@
     }
   });
 
+  // Close the dialog when clicking outside of it
+  dialog?.addEventListener("click", (event) => {
+    if (event.target === dialog) {
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientY < rect.top || event.clientY > rect.bottom)
+        return dialog.close();
+      if (event.clientX < rect.left || event.clientX > rect.right)
+        return dialog.close();
+    }
+  });
+
   // Additional fade logic for the description text when its scrolled
   description?.addEventListener("scroll", (event) => {
     const el = event.target as HTMLParagraphElement;
