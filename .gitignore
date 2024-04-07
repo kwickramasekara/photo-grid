@@ -1,6 +1,6 @@
 # Build artifact directories
-dist
-site
+_dev
+_site
 
 # Dependency directories
 node_modules
