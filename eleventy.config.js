@@ -87,7 +87,7 @@ module.exports = function (eleventyConfig) {
   return {
     dir: {
       input: "src",
-      output: process.env.ELEVENTY_RUN_MODE == "serve" ? "site" : "dist",
+      output: process.env.ELEVENTY_RUN_MODE == "serve" ? "_dev" : "_site",
     },
   };
 };

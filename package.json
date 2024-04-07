@@ -7,10 +7,10 @@
   },
   "scripts": {
     "build": "eleventy --config=eleventy.config.js",
+    "dev": "eleventy --config=eleventy.config.js --serve",
     "format": "prettier . --write --ignore-unknown",
     "lint": "eslint ./src/js/**/*.ts",
-    "prepare": "node -e \"(process.env.CI === undefined) ? require('husky').install() : console.log('Git hooks did not install')\"",
-    "start": "eleventy --config=eleventy.config.js --serve"
+    "prepare": "node -e \"(process.env.CI === undefined) ? require('husky').install() : console.log('Git hooks did not install')\""
   },
   "repository": {
     "type": "git",
