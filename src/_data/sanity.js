@@ -18,10 +18,10 @@ module.exports = async function () {
   const url = `https://${projectId}.api.sanity.io/${APIVersion}/data/query/${dataset}?query=${encodedQuery}`;
 
   if (!projectId) {
-    console.log(
+    console.error(
       "ERROR: No Sanity project ID found. Please add one to your environment variables.\n",
     );
-    return;
+    return [];
   }
 
   return EleventyFetch(url, {
