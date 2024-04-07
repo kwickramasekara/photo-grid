@@ -40,7 +40,7 @@ export default () => {
     return (
       <ThemeProvider theme={studioTheme}>
         <ToastProvider>
-          <Container width={1}>
+          <Container width={2}>
             <Card
               padding={[3, 4, 5]}
               paddingBottom={[4, 5, 6]}
@@ -60,12 +60,11 @@ export default () => {
               <Text size={2} muted>
                 Oops! We couldn't find a valid webhook URL. Please see{" "}
                 <a
-                  href="https://github.com/kwickramasekara/photo-grid/wiki/Configuring#environment-variables"
+                  href="https://github.com/kwickramasekara/photo-grid/wiki/Customizations#environment-variables"
                   target="_blank"
                 >
-                  documentation
+                  documentation {(LaunchIcon as any).render()}.
                 </a>
-                .
               </Text>
             </Card>
           </Container>
