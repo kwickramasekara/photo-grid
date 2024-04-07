@@ -17,6 +17,13 @@ layout: layouts/base.njk
       {%- set placeholderClasses = "max-h-full min-h-full min-w-full max-w-full object-cover" if config.ui.gridLayout == "masonry" else "h-full w-full object-cover" -%}
       {%- include "src/_includes/components/image-renderer.njk" -%}
     </a>
+  {% else %}
+    <div class="flex items-center justify-center w-full h-dvh">
+      <p class="text-center text-gray-950 dark:text-gray-50">
+        No images found. <a href="/admin" class="text-sky-500">Add some</a> to
+        get started.
+      </p>
+    </div>
   {%- endfor -%}
 </div>
 
