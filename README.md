@@ -19,6 +19,3 @@ For detailed documentation, please see the [wiki](https://github.com/kwickramase
 ## Support
 
 If you need any help or have general questions, please post them in our [discussions](https://github.com/kwickramasekara/photo-grid/discussions) page and we'd be happy to help!.
-
----
-Note: the project should be stable to use, however we are still finishing up some of the documentation. 
