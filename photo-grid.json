@@ -1,29 +1,30 @@
 {
   "admin": {
-    "title": "Photo Grid - Admin Demo"
+    "title": "Photo Grid - Admin"
   },
   "app": {
     "allowIndexing": "true",
     "basePathName": "",
-    "domain": "https://photo-grid-demo.netlify.app",
+    "domain": "https://photos.keithw.me",
     "port": "3333",
     "previewPathName": "photo"
   },
   "author": {
-    "name": "John Doe",
+    "name": "Keith Wickramasekara",
     "links": {
-      "github": "https://github.com/kwickramasekara/photo-grid",
-      "app": "https://photo-grid-demo.netlify.app/"
+      "app": "https://keithw.me/",
+      "instagram": "https://www.instagram.com/kwickramasekara/",
+      "github": "https://github.com/kwickramasekara",
     }
   },
   "metadata": {
-    "description": "Photography Portfolio of John Doe.",
+    "description": "Photography Portfolio of Keith Wickramasekara.",
     "language": "en",
-    "title": "Photo Grid"
+    "title": "Keith Wickramasekara"
   },
   "ui": {
-    "allowDownload": "true",
-    "colorPreference": "auto",
+    "allowDownload": "false",
+    "colorPreference": "dark",
     "displayOrder": "desc",
     "gridGap": "0.25",
     "gridLayout": "masonry",
