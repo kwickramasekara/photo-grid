@@ -16,6 +16,10 @@ A full list of features is available in the [wiki](https://github.com/kwickramas
 
 For detailed documentation, please see the [wiki](https://github.com/kwickramasekara/photo-grid/wiki) which contains a [getting started](https://github.com/kwickramasekara/photo-grid/wiki/Getting-Started) guide as well as other useful information.
 
+## Examples
+
+See our [demo](https://photo-grid-demo.netlify.app/) site and [examples](https://github.com/kwickramasekara/photo-grid/discussions/categories/show-and-tell) from the community.
+
 ## Support
 
 If you need any help or have general questions, please post them in our [discussions](https://github.com/kwickramasekara/photo-grid/discussions) page and we'd be happy to help!.
