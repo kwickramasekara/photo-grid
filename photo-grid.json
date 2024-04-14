@@ -30,8 +30,8 @@
     "gridLayout": "masonry",
     "previewBgDynamicColors": "false",
     "previewImageWidth": "2048",
-    "showDetails": "true",
-    "showDetailsExif": "true",
+    "showDetails": "false",
+    "showDetailsExif": "false",
     "thumbnailWidth": "640"
   }
 }
