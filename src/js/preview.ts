@@ -10,7 +10,7 @@
   });
 
   // Observe the dialog's "open" attribute
-  mObserver.observe(dialog, { attributes: true });
+  if (dialog) mObserver.observe(dialog, { attributes: true });
 
   // Fade the description text when it overflows
   dialog?.addEventListener("dialog-open", () => {
