@@ -92,7 +92,7 @@
             {%- if imgObj.exif.FNumber -%}
               <span
                 class="ml-2 [&:not(:first-child):before]:mr-2 [&:not(:first-child):before]:content-['\00B7'] {{ dividerColor }}"
-                >ƒ{{ imgObj.exif.FNumber }}</span
+                >ƒ{{ imgObj.exif.FNumber | round(1) }}</span
               >
             {%- endif -%}
 
