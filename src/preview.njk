@@ -62,7 +62,7 @@ eleventyComputed:
   {%- include "src/_includes/components/button-link.njk" -%}
 
   {# checking the length of exif object here due to Sanity's behavior of including only unrelated data #}
-  {%- if config.ui.showDetails == 'true' and (image.title or image.description or image.exif | length > 5 or image.tags) -%}
+  {%- if config.ui.showDetails == "true" and (image.title or image.description or image.tags) or (config.ui.showDetailsExif == "true" and image.exif | length > 5) -%}
     {%- set buttonIcon = "src/_includes/icons/details.njk" -%}
     {%- set buttonClasses = "float-right" -%}
     {%- set buttonId = "details" -%}
