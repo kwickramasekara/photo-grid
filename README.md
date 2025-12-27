@@ -18,7 +18,7 @@ For detailed documentation, please see the [wiki](https://github.com/kwickramase
 
 ## Examples
 
-See our [demo](https://photo-grid-demo.netlify.app/) site and [examples](https://github.com/kwickramasekara/photo-grid/discussions/categories/show-and-tell) from the community.
+See our [examples](https://github.com/kwickramasekara/photo-grid/discussions/categories/show-and-tell) from the community.
 
 ## Support
 
